@@ -1,0 +1,636 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/bitbug_favicon.ico">
+  <link rel="icon" type="image/png" href="/img/bitbug_favicon.ico">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="且视他人之疑目如盏盏鬼火，大胆地去走自己的路。">
+  <meta name="author" content="lynn1286💭">
+  <meta name="keywords" content="前端博客,JavaScript,html5,css3,Jquery,NodeJs,Vue,React">
+  <title>Flutter开发环境搭建 - lynn1286💭</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_6peoq002giu.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.1.1"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>lynn1286💭</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/image_one.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container page-header text-center fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2020-09-01 11:42" pubdate>
+      2020年9月1日 中午
+    </time>
+  </div>
+
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.6k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      18
+       分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto" id="post">
+            <!-- SEO header -->
+            <h1 style="display: none">Flutter开发环境搭建</h1>
+            
+            <div class="markdown-body" id="post-body">
+              <h2 id="安装Flutter-SDK"><a href="#安装Flutter-SDK" class="headerlink" title="安装Flutter SDK"></a>安装Flutter SDK</h2><p><a target="_blank" rel="noopener" href="https://flutter.dev/docs/development/tools/sdk/releases?tab=macos#macos">官网地址</a> 可能需要科学上网</p>
+<p>此文章针对 mac 系统进行配置,如需要配置window环境,可以查看 <a target="_blank" rel="noopener" href="https://jspang.com/detailed?id=41">技术胖</a>的博客 或者去 <a target="_blank" rel="noopener" href="https://flutterchina.club/setup-macos/">Flutter中文网</a>查看教程。</p>
+<p>本人在配置过程中遇到最多的问题就是网络问题,建议科学上网操作一下全部流程。</p>
+<h3 id="SDK下载完成"><a href="#SDK下载完成" class="headerlink" title="SDK下载完成"></a>SDK下载完成</h3><ol>
+<li><p>解压安装包存放到你想放置的文件内,注意这一步很重要,因为在接下来的环境变量配置需要用到它. 例如: 我在Dektop下新建了一个Flutter文件夹存放解压后的Flutter SDK</p>
+</li>
+<li><p>配置环境变量: 打开终端 ls -a 查看是否有 .bash_profile 文件, 如果没有的话新建, 有的话打开该文件(打开的方式有很多,怎么方便怎么来吧)。</p>
+<pre><code>         新建文件的命令是: touch 文件名</code></pre>
+</li>
+<li><p>打开或者新建了文件之后编写文件</p>
+<pre><code>         export PUB_HOSTED_URL=https://pub.flutter-io.cn  # 国内用户需要设置
+         export FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn  # 国内用户需要设置
+         export PATH=SDK-Path/flutter/bin:$PATH</code></pre>
+<p> 注意: SDK-Path 为你flutter的路径，比如我刚刚在Desktop下新建了Flutter文件夹存放,那么我的SDK-Path 这里应该是 /Users/你的电脑用户名/Desktop/Flutter , 如果环境变量没有配置成功回来这里检查就对了. (如果想要快速查看这个文件存放位置, 可以进入该文件夹 打开终端输入pwd 查看)<br> 如果你的mac终端是 zsh 那么你肯定知道 终端启动时 ~/.bash_profile 将不会被加载，解决办法就是修改 ~/.zshrc ，在其中添加：source ~/.bash_profile</p>
+</li>
+<li><p>上一步配置完成后,重启终端或者运行 source $HOME/.bash_profile 刷新当前终端窗口.</p>
+</li>
+<li><p>到了这里Flutter SDK算是安装完成了,并且你可以在随处打开终端执行 flutter 命令了。</p>
+</li>
+<li><p>验证是否安装成功:</p>
+<pre><code>         flutter -h</code></pre>
+</li>
+<li><p>如果环境配置成功会有输出,接下来检查Flutter开发环境, 输入命令:</p>
+<pre><code>         flutter doctor</code></pre>
+</li>
+<li><p>不出所料可能会出现很多的 x , 例如:</p>
+<pre><code>         To install, run:
+         brew install --HEAD libimobiledevice
+         brew install ideviceinstaller
+         ✗ ios-deploy not installed. To install:
+             brew install ios-deploy
+         ✗ CocoaPods not installed.
+             CocoaPods is used to retrieve the iOS platform side&#39;s plugin code that responds to your plugin usage on the Dart side.
+             Without resolving iOS dependencies with CocoaPods, plugins will not work on iOS.
+             For more info, see https://flutter.io/platform-plugins
+         To install:
+             brew install cocoapods
+             pod setup</code></pre>
+<p> <strong>备注:</strong>  每台电脑的环境可能会有所不同, 大家根据自己的提示进行一系列安装. 上面输出大概意思就是我们需要这些软件，Flutter推荐你用brew命令进行安装。</p>
+</li>
+<li><p>安装完以上软件之后, 我们再来安装 Android Studio , 下载地址: <a target="_blank" rel="noopener" href="http://www.android-studio.org/">http://www.android-studio.org/</a></p>
+<p> 安装好之后运行 Android Studio , 然后打开另外终端 输入命令允许协议（android-licenses）:</p>
+<pre><code>         flutter doctor --android-licenses</code></pre>
+<p> 然后让你输入Y/N的时候，一路Y就可以了.</p>
+</li>
+<li><p>上面那一步安装好之后 再次输入 flutter doctor 进行环境检测 , 查看是否有这一行信息:</p>
+<pre><code>        ✗ Flutter plugin not installed; this adds Flutter specific functionality.
+        ✗ Dart plugin not installed; this adds Dart specific functionality.</code></pre>
+<p>如果有 说明你的 Android Studio 没有安装Flutter 插件, 打开 Android Studio 后 快捷键 :</p>
+<pre><code>        command + ,</code></pre>
+<p>选择 plugings 后搜索 Flutter 插件安装,安装完成之后重新启动 Android Studio, 然后再次输入检测命令:</p>
+<pre><code>        flutter doctor</code></pre>
+</li>
+<li><p>如果有提示 vscode 的文字, 下载打开vscode ,查找Flutter插件以及dart插件 并安装好它们.</p>
+</li>
+<li><p>完成vscode的步骤之后, 再次输入命令 flutter doctor 检测环境,如果全部都 [✓] 符号, 只有出现下面这个提示 :</p>
+<pre><code>        [!] Connected devices
+            ! No devices available</code></pre>
+<p>那么恭喜你,环境已经搭建好了, 这个提示只是提示没有找到 调试设备, 可以不用管它.</p>
+</li>
+<li><p>接下来 安装 AVD 虚拟机 , 打开 Android Studio 后界面会出现一个 start a new Flutter project , 不犹豫 意思就是新建一个 Flutter项目 , 其实新建项目也可以使用终端:</p>
+<pre><code>        flutter create myapp</code></pre>
+<p>项目新建后我们就可以看到我们的目录结构了,这个不是重点, 我们在 Android Studio 编辑器上找到 Tools 选择 AVD manager 然后会弹出一个界面,如果你没有安装过 AVD虚拟机, 中间会出现创建按钮的.</p>
+</li>
+<li><p>虚拟机安装好之后我们就要来跑一下我们新建的Flutter项目了, 这里建议使用 vscode 来运行 Flutter 项目, 毕竟轻量级目前最火编辑器之一嘛.</p>
+<p>打开 vscode 选择我们刚刚新建的Flutter 项目 , 打开 AVD 虚拟机 , 终端输入命令检查Android设备是否在运行:</p>
+<pre><code>        flutter devices</code></pre>
+<p>如果你开启了 虚拟机 ,终端会输出如下内容:</p>
+<pre><code>        1 connected device:
+
+        AOSP on IA Emulator • emulator-5554 • android-x86 • Android 9 (API 28) (emulator)</code></pre>
+<p>注意 每个人安装的虚拟机操作系统不一样,所以内容输出不是一模一样的哦 .</p>
+<p>如果有输出 ,接下来可以执行命令:</p>
+<pre><code>        flutter run</code></pre>
+<p>假如你开了多个虚拟机, 你可以通过命令来达到你想要在哪台虚拟机上运行你的app:</p>
+<pre><code>        flutter run -d emulator-5554</code></pre>
+<p><strong>emulator-5554</strong> 这个是虚拟机的ID , 如果你只是运行了一台则可以忽略这段话.</p>
+</li>
+<li><p>到此为止, Flutter 开发环境已经配置完毕。</p>
+</li>
+</ol>
+<h3 id="iOS开发环境设置"><a href="#iOS开发环境设置" class="headerlink" title="iOS开发环境设置"></a>iOS开发环境设置</h3><ol>
+<li><p>安装Xcode 9.0</p>
+</li>
+<li><p>配置Xcode命令行工具以使用新安装的Xcode版本:</p>
+<pre><code>         sudo xcode-select --switch /Applications/Xcode.app/Contents/Developer</code></pre>
+<p> 以上路径时对于最新版Xcode的路径。如果你需要使用不同的Xcode版本，需要指定相应路径。</p>
+</li>
+<li><p>确保Xcode许可协议是通过打开一次Xcode或通过命令sudo xcodebuild -license同意过了,接下来就可以使用Xcode，在iOS设备或模拟器上运行Flutter App了。</p>
+</li>
+<li><p>在终端输入如下命令打开一个iOS模拟器：</p>
+<pre><code>         open -a Simulator</code></pre>
+</li>
+<li><p>打开虚拟机后 运行项目</p>
+</li>
+</ol>
+<h2 id="如何将Flutter-项目跑在真机"><a href="#如何将Flutter-项目跑在真机" class="headerlink" title="如何将Flutter 项目跑在真机"></a>如何将Flutter 项目跑在真机</h2><p>目前没有尝试 , 推荐个文章给大家看看: <a target="_blank" rel="noopener" href="https://www.devio.org/2019/04/03/development-environment-mac/">https://www.devio.org/2019/04/03/development-environment-mac/</a></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>整个过程耗时 3 个小时 , 因为网络原因导致很多的问题, 希望大家有个好的翻墙工具以及网络环境 来操作 可能时间会快很多</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Flutter/">Flutter</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/">环境搭建</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/articles/2020/09/01/Git%E5%AD%A6%E4%B9%A0%E5%A4%87%E5%BF%98%E5%BD%95/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Git学习备忘录</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/articles/2020/09/01/Centos-7%E4%B8%8B%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AENginx/">
+                        <span class="hidden-mobile">Centos 7下安装配置Nginx</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <!-- <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div> -->
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '#post-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "Flutter开发环境搭建&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+  
+  
+    <script>
+      !function (e, t, a) {
+        function r() {
+          for (var e = 0; e < s.length; e++) s[e].alpha <= 0 ? (t.body.removeChild(s[e].el), s.splice(e, 1)) : (s[e].y--, s[e].scale += .004, s[e].alpha -= .013, s[e].el.style.cssText = "left:" + s[e].x + "px;top:" + s[e].y + "px;opacity:" + s[e].alpha + ";transform:scale(" + s[e].scale + "," + s[e].scale + ") rotate(45deg);background:" + s[e].color + ";z-index:99999");
+          requestAnimationFrame(r)
+        }
+
+        function n() {
+          var t = "function" == typeof e.onclick && e.onclick;
+          e.onclick = function (e) {
+            t && t(), o(e)
+          }
+        }
+
+        function o(e) {
+          var a = t.createElement("div");
+          a.className = "heart", s.push({
+            el: a,
+            x: e.clientX - 5,
+            y: e.clientY - 5,
+            scale: 1,
+            alpha: 1,
+            color: c()
+          }), t.body.appendChild(a)
+        }
+
+        function i(e) {
+          var a = t.createElement("style");
+          a.type = "text/css";
+          try {
+            a.appendChild(t.createTextNode(e))
+          } catch (t) {
+            a.styleSheet.cssText = e
+          }
+          t.getElementsByTagName("head")[0].appendChild(a)
+        }
+
+        function c() {
+          return "rgb(" + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + ")"
+        }
+
+        var s = [];
+        e.requestAnimationFrame = e.requestAnimationFrame || e.webkitRequestAnimationFrame || e.mozRequestAnimationFrame || e.oRequestAnimationFrame || e.msRequestAnimationFrame || function (e) {
+          setTimeout(e, 1e3 / 60)
+        }, i(".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}"), n(), r()
+      }(window, document);
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

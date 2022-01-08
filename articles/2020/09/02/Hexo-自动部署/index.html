@@ -1,0 +1,777 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/bitbug_favicon.ico">
+  <link rel="icon" type="image/png" href="/img/bitbug_favicon.ico">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="且视他人之疑目如盏盏鬼火，大胆地去走自己的路。">
+  <meta name="author" content="lynn1286💭">
+  <meta name="keywords" content="前端博客,JavaScript,html5,css3,Jquery,NodeJs,Vue,React">
+  <title>Hexo 自动部署 - lynn1286💭</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_6peoq002giu.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.1.1"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>lynn1286💭</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/image_one.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container page-header text-center fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2020-09-02 10:41" pubdate>
+      2020年9月2日 上午
+    </time>
+  </div>
+
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      3.2k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      37
+       分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto" id="post">
+            <!-- SEO header -->
+            <h1 style="display: none">Hexo 自动部署</h1>
+            
+            <div class="markdown-body" id="post-body">
+              <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近 Git Pages 好像因为被墙的原因导致网速感人，遂决定重新部署个人博客到阿里云服务器，因为菜所以磕磕碰碰 ， 记录下 ，为以后健忘症的我埋下点东西，以后方便查阅。</p>
+<h2 id="物料准备"><a href="#物料准备" class="headerlink" title="物料准备"></a>物料准备</h2><ul>
+<li><p>一台服务器。（作者使用的是阿里云服务器）</p>
+</li>
+<li><p>一台电脑。（作者使用的是 Mac Pro）</p>
+</li>
+<li><p>带上耳机开始撸。</p>
+</li>
+</ul>
+<h2 id="什么是-Hexo"><a href="#什么是-Hexo" class="headerlink" title="什么是 Hexo"></a>什么是 Hexo</h2><p>Hexo 是一个快速、简洁且高效的博客框架。</p>
+<p>Hexo 使用 Markdown 解析文章，在几秒内，即可利用靓丽的主题生成静态网页。</p>
+<p>它的官网地址是： <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/">https://hexo.io/zh-cn/</a></p>
+<h2 id="搭建本地-Hexo-环境"><a href="#搭建本地-Hexo-环境" class="headerlink" title="搭建本地 Hexo 环境"></a>搭建本地 Hexo 环境</h2><p>安装 Node：<br>进入 Node 官网下载安装，各位小伙伴这个我就不细说了吧。</p>
+<p>Npm：<br>只要你安装了 Node ，那么 npm 也会安装好的。</p>
+<p>验证是否安装成功，打开终端输入：</p>
+<pre><code class="hljs bash">node --version
+npm --version</code></pre>
+
+<p>如果命令行有输出版本那么恭喜小伙伴安装成功，如果输出了：</p>
+<pre><code class="hljs bash"><span class="hljs-built_in">command</span> not found: node
+<span class="hljs-built_in">command</span> not found: npm</code></pre>
+
+<p>可能是环境没变量没有配置好 或者安装出了问题，因为这不是本文重点所以请各位小伙伴自行搜索解决，实在不行可以私聊作者协助解决。</p>
+<p>安装<code>git</code>（mac 系统自带 <code>git</code> ，所以不需要安装）:<br>进入<code>Git</code>官网下载安装，这个我也不细说了。<br>完成安装后，进入<code>Hexo</code>官网查看安装命令。</p>
+<pre><code class="hljs bash">npm install hexo-cli -g</code></pre>
+
+<p>意思就是要我们全局安装 <code>hexo-cli</code> ， 终端执行安装。<br>当然你不想全局安装 <code>hexo</code>文档也有局部安装，具体查看<code>Hexo</code>文档。<br>安装好<code>hexo</code>脚手架之后，我们利用它来初始化一个项目。</p>
+<pre><code class="hljs bash">hexo init &lt;文件夹名称&gt;</code></pre>
+
+<p>等<code>hexo</code>初始化好项目之后，我们使用<code>vscode</code>打开项目，在根目录下打开终端执行：</p>
+<pre><code class="hljs bash">npm install</code></pre>
+
+<p>安装好项目的各种依赖之后呢，就可以预览我们的项目了，执行：</p>
+<pre><code class="hljs bash">hexo s</code></pre>
+
+<p>到这里，我们本地的环境 已经搭建完毕并且也准备了一个项目。</p>
+<h2 id="搭建服务器环境"><a href="#搭建服务器环境" class="headerlink" title="搭建服务器环境"></a>搭建服务器环境</h2><p>作者这里使用的是阿里云服务器，本地<code>ssh</code> 远程登录到阿里云服务器之后，安装以下软件：</p>
+<ol>
+<li>Nginx</li>
+<li>Git</li>
+</ol>
+<p>那么我们先来安装 Git：</p>
+<pre><code class="hljs bash">yum install git</code></pre>
+
+<p>安装之后 ，命令 <code>git --version</code> 检查是否安装成功。<br>接下来创建 <code>git</code> 用户， 注意 这里是创建 系统用户， 名字叫 <code>git</code> ，当然 你也可以取其他的名称，创建这个用户主要是用来 实现自动化部署的， 虽然服务器就只有我一个人使用好像多此一举，但是 装逼下没啥大问题。</p>
+<pre><code class="hljs bash">sudo adduser git</code></pre>
+
+<p>我们现在创建了一个 git 用户， 接下来的操作都跟它有关， 但是到目前为止我们先不管它，当然你也可以先跳过这一步骤。<br>接着往下， 我们的博客文件肯定需要有个地方来存放没毛病吧，作者选择在 <code>/home</code> 目录下创建存放博客的目录，地址为 <code>/home/www/hexo</code> 。</p>
+<pre><code class="hljs bash">mkdir -p /home/www/hexo</code></pre>
+
+<h2 id="安装-Nginx"><a href="#安装-Nginx" class="headerlink" title="安装 Nginx"></a>安装 Nginx</h2><p>注：以下步骤都在 服务器上操作的哦。</p>
+<p>准备好这些之后，我们要搞点复杂的东西了，安装配置<code>nginx</code>：<br>安装 EPEL 源：</p>
+<pre><code class="hljs bash">sudo yum install -y epel-release</code></pre>
+
+<p>更新 yum：</p>
+<pre><code class="hljs bash">sudo yum -y update</code></pre>
+
+<p>接着安装 Nginx：</p>
+<pre><code class="hljs bash">sudo yum install -y nginx</code></pre>
+
+<p>安装成功后，默认的网站目录为：<code>/usr/share/nginx/html</code></p>
+<p>默认的配置文件为：<code>/etc/nginx/nginx.conf</code></p>
+<p>自定义配置文件目录为: <code>/etc/nginx/conf.d/</code></p>
+<p>如果你的服务器打开了防火墙，你需要运行下面的命令，打开 80 和 443 端口。</p>
+<pre><code class="hljs bash">sudo firewall-cmd --permanent --zone=public --add-service=http
+sudo firewall-cmd --permanent --zone=public --add-service=https
+sudo firewall-cmd --reload</code></pre>
+
+<p>启动 Nginx：</p>
+<pre><code class="hljs bash">systemctl start nginx</code></pre>
+
+<p>开机启动 Nginx：</p>
+<pre><code class="hljs bash">systemctl <span class="hljs-built_in">enable</span> nginx</code></pre>
+
+<p>校验 Nginx 是否安装成功，你可以打开你的公网地址进行访问，看看能否访问到 nginx 的默认网页，如果不行 ，抱歉 ，自行搜下解决办法 或者联系作者协助安装。</p>
+<h2 id="配置-Nginx"><a href="#配置-Nginx" class="headerlink" title="配置 Nginx"></a>配置 Nginx</h2><p>作者还配置了<code>https</code> ， 所以这里再讲一下如何配置免费的 <code>https</code> 。</p>
+<p>安装<code>Https</code>免费证书(以阿里云域名为例)</p>
+<p>一键安装 acme.sh：</p>
+<pre><code class="hljs bash">curl https://get.acme.sh | sh <span class="hljs-comment"># 安装</span>
+<span class="hljs-built_in">echo</span> <span class="hljs-string">&#x27;alias acme.sh=~/.acme.sh/acme.sh&#x27;</span> &gt;&gt; ~/.bashrc <span class="hljs-comment"># 环境变量</span>
+<span class="hljs-built_in">source</span> ~/.bashrc <span class="hljs-comment"># 更新生效配置</span></code></pre>
+
+<p>生成 Https 证书：</p>
+<pre><code class="hljs bash"><span class="hljs-built_in">export</span> Ali_Key=<span class="hljs-string">&quot;**********&quot;</span>  <span class="hljs-comment"># 在阿里云 AccessKey 管理页面获取</span>
+<span class="hljs-built_in">export</span> Ali_Secret=<span class="hljs-string">&quot;**********&quot;</span>  <span class="hljs-comment"># 在阿里云 AccessKey 管理页面获取</span>
+acme.sh --issue --dns dns_ali -d domain <span class="hljs-comment"># domain 是你的域名，没有d的话使用公网ip就可以</span></code></pre>
+
+<p>关于 <code>Ali_key</code> 和 <code>Ali_Secret</code> 的获取：</p>
+<p>点击阿里云后台，右上角用户头像，菜单中选择<code>accesskeys</code>。<br>查看<code>AccessKey ID</code> 和 <code>Access Key Secret</code>，即对应上面的<code>Ali_Key</code> 和 <code>Ali_Secret</code>。</p>
+<p><code>domain</code> 对应该账户下购买的阿里云域名。</p>
+<p>拷贝证书到 nginx：</p>
+<pre><code class="hljs bash">mkdir -p /etc/nginx/ssl <span class="hljs-comment"># 先创建 ssl 文件夹用来存放 https 的 key 等文件</span>
+
+<span class="hljs-comment"># domain 是你的域名 没有的话使用 ip 也可以</span>
+acme.sh --install-cert -d domain \
+--key-file       /etc/nginx/ssl/domain.key  \
+--fullchain-file /etc/nginx/ssl/domain.cer \
+--reloadcmd     <span class="hljs-string">&quot;service nginx force-reload&quot;</span></code></pre>
+
+<p>https 证书拷贝是否成功 ， 可以进入 <code>/etc/nginx/ssl</code> 文件夹 查看是否有文件存在 。</p>
+<p>目前 https 证书在 60 天以后会自动更新, 你无需任何操作. 今后有可能会缩短这个时间, 不过都是自动的, 你不用关心.</p>
+<p>接着 删除或者注释 <code>/etc/nginx/nginx.conf</code> 中的<code>server</code>部分代码。</p>
+<p>然后在 <code>/etc/nginx/conf.d</code> 创建自定义配置文件 <code>default.conf</code> ，写入以下内容：</p>
+<pre><code class="hljs bash">server &#123;
+    listen 80;
+    listen 443 ssl;
+    server_name  chalicelee.xin www.chalicelee.xin; <span class="hljs-comment"># 改成 你自己的域名</span>
+​
+    location / &#123;
+        root   /home/www/hexo; <span class="hljs-comment"># 如果你的存放地址跟我一致则不需要改动</span>
+        index  index.html index.htm;
+    &#125;
+​
+    ssl on;
+    ssl_certificate /etc/nginx/ssl/chalicelee.xin.cer; <span class="hljs-comment"># https 的 cer 文件</span>
+    ssl_certificate_key /etc/nginx/ssl/chalicelee.xin.key; <span class="hljs-comment"># https 的 key 文件</span>
+    ssl_session_timeout  5m;
+    ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
+    ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:ECDHE:ECDH:AES:HIGH:!NULL:!aNULL:!MD5:!ADH:!RC4:!DH:!DHE;
+    ssl_prefer_server_ciphers  on;
+​
+    error_page 497  https://<span class="hljs-variable">$host</span><span class="hljs-variable">$uri</span>?<span class="hljs-variable">$args</span>; <span class="hljs-comment"># 强制http跳转到https</span>
+&#125;</code></pre>
+
+<p>至此 ， Nginx 配置完毕，接下来我们要部署我们的 hexo 博客了。</p>
+<h2 id="配置-git-用户"><a href="#配置-git-用户" class="headerlink" title="配置 git 用户"></a>配置 git 用户</h2><p>还记得前面我们创建了一个系统用户 git 吧 ， 接下来我们要配置下它：</p>
+<p>修改 git 用户的权限：</p>
+<pre><code class="hljs bash">chmod 740 /etc/sudoers</code></pre>
+
+<p>然后打开文件 ： <code>/etc/sudoers</code> ， 增加 git 用户 。</p>
+<p><img src="/images/WX20200901-162034.png" srcset="/img/loading.gif" alt="git"></p>
+<p>修改后记得把权限改回来哦。</p>
+<pre><code class="hljs bash">chmod 400 /etc/sudoers</code></pre>
+
+<p>设置 git 用户密码 （可选）</p>
+<pre><code class="hljs bash">sudo passwd git</code></pre>
+
+<p>然后在终端输入你的密码。</p>
+<p>至此 完成了 Git 用户的创建，接下来我们向 Git 用户添加公钥，就像配置 Github 那样。</p>
+<h2 id="配置-ssh-公钥"><a href="#配置-ssh-公钥" class="headerlink" title="配置 ssh 公钥"></a>配置 ssh 公钥</h2><p>我们拉取代码的时候有配置过仓库的 ssh 实现免密码登录即可拉取仓库代码的经历吧，这一步其实是一样的原理。</p>
+<p>总体思路：</p>
+<ol>
+<li><p>先在你本地生成 密钥对 。</p>
+</li>
+<li><p>然后把生成的公钥上传到服务器。</p>
+</li>
+<li><p>把上传的公钥内容 copy 到 authorized_keys 文件中。</p>
+</li>
+</ol>
+<p>接下来我们开始吧。</p>
+<p>本地生成密钥对</p>
+<p>各位小伙伴注意：这一步操作是在本地 进行的哦。</p>
+<p>本地打开你的终端 ， 输入命令：</p>
+<pre><code class="hljs bash"><span class="hljs-built_in">cd</span> ～ <span class="hljs-comment"># 进入根目录</span>
+<span class="hljs-built_in">cd</span> .ssh <span class="hljs-comment"># 进入 .ssh 目录</span>
+ssh-keygen <span class="hljs-comment"># 生成密钥对</span></code></pre>
+
+<p>相信如果有配置过 ssh 的同学 ，都应该会有 <code>.ssh</code> 目录存在 ，它是个隐藏目录 ，所以想要发现它 ，必须 加入 <code>ls -a</code> 。</p>
+<p>如果你发现你没有这个目录，也别紧张 ，新建<code>.ssh</code>目录就好了。</p>
+<p>密钥对生成之后 为私钥设置权限：</p>
+<pre><code class="hljs bash">chmod 700 ~/.ssh
+chmod 600 ~/.ssh/id_rsa</code></pre>
+
+<p>至此 ，密钥对生成完毕。</p>
+<p>上传公钥至服务器</p>
+<p>各位小伙伴注意：这一步是在服务器 终端操作的。</p>
+<p>mac 可以使用 <code>scp</code> 命令 上传服务器，各位小伙伴实在觉得这一步有点麻烦，那么可以试一下本地打开 <code>.ssh</code> 目录下的 <code>id_rsa.pub</code> 文件 ， 把它的内容 <code>copy</code> 过来，然后 阿里云远程登录到服务器，然后 切换到 git 用户。</p>
+<pre><code class="hljs bash">su git <span class="hljs-comment"># 切换到git 用户</span>
+<span class="hljs-built_in">cd</span> ~ <span class="hljs-comment"># 进入根目录</span>
+mkdir .ssh  <span class="hljs-comment"># 如果没有这个文件夹则创建 如果有则忽略这个命令</span></code></pre>
+
+<p>创建好 <code>.ssh</code> 文件夹后 ，进入到这个文件夹 ， 创建 <code>authorized_keys</code> 文件 ，并把 刚刚你<code>copy</code>的公钥内容粘贴进去保存。</p>
+<p>然后修改 文件权限：</p>
+<pre><code class="hljs bash">chmod 600 ~/.ssh/authorized_keys
+chmod 700 ~/.ssh</code></pre>
+
+<p>重启服务器 ，然后本地试下 ssh 连接是否能够成功。</p>
+<pre><code class="hljs bash">ssh -v git@xxx.xxx.xxx.xxx（你的公网 IP）</code></pre>
+
+<p>注意：因为作者 是使用了 <code>git</code> 名称 ，所以这里连接的时候也是 <code>git</code> ，假如你的是别的名称， 应该换成对应的。</p>
+<p>如果上述操作失败，那么各位小伙伴就要根据对应的操作系统来把 本地生成的公钥 上传到 服务器 然后在服务器<code>copy</code>公钥的内容到 <code>authorized_keys</code> 文件内。</p>
+<p>但是讲道理应该是可以成功的。</p>
+<p>哈哈，感觉很不负责任的话。</p>
+<p>好了，至此 如果你能够通过 ssh 本地连接远程的 git 用户了 ， 那么服务端公钥的配置也结束了。</p>
+<h2 id="服务器配置-git-仓库"><a href="#服务器配置-git-仓库" class="headerlink" title="服务器配置 git 仓库"></a>服务器配置 git 仓库</h2><p>各位小伙伴注意，以下操作为服务器操作 ， 并且不是 <code>root</code> 用户 而是 <code>git</code> 用户哦。</p>
+<p>通过前面的步骤，我们已经可以通过本地 <code>ssh</code> 连接到我们的服务器 <code>git</code> 用户， 那么接着我们使用<code>git</code>用户配置我们的<code>git</code>仓库吧。（好怪，有点后悔随大众 取名 为 <code>git</code> 了。）</p>
+<p>登录服务器，进行操作：</p>
+<pre><code class="hljs bash"><span class="hljs-built_in">cd</span> ~ <span class="hljs-comment"># 进入根目录</span>
+git init --bare hexo.git  <span class="hljs-comment"># 初始化git裸仓库</span></code></pre>
+
+<p>详细说一下使用 <code>--bare</code> 参数的含义，使用 <code>--bare</code> 参数初始化的仓库，我们一般称之为裸仓库， 因为这样创建的仓库并不包含 工作区 ， 也就是说，我们并不能在这个目录下执行我们一般使用的 Git 命令。</p>
+<p>接着我们 创建并 写入 post-receive 钩子文件：</p>
+<pre><code class="hljs bash">vi ~/hexo.git/hooks/post-receive</code></pre>
+
+<p>写入内容如下：</p>
+<pre><code class="hljs bash">git --work-tree=/home/www/hexo --git-dir=/home/git/hexo.git checkout -f</code></pre>
+
+<p>注意 文件的地址要保持一致哦。</p>
+<p>授予钩子文件可执行权限。</p>
+<pre><code class="hljs bash">chmod +x ~/hexo.git/hooks/post-receive
+<span class="hljs-built_in">cd</span> ~
+sudo chmod -R 777 /home/www/hexo</code></pre>
+
+<p>重启服务器实例。<br>至此，我们就完成了服务端的配置</p>
+<h2 id="项目中的配置"><a href="#项目中的配置" class="headerlink" title="项目中的配置"></a>项目中的配置</h2><p>哟吼，配置接近尾声 ， 不激动， 慢慢来。</p>
+<p>注意： 这一步骤的所有操作都在本地 刚刚我们初始化的 项目中。</p>
+<p>打开我们刚刚初始化的项目， 然后 打开 hexo 的 配置文件： _config.yml ：</p>
+<pre><code class="hljs bash"><span class="hljs-comment"># Deployment</span>
+<span class="hljs-comment">## 修改 这个字段 repo 是你的 服务器 存放目录</span>
+deploy:
+  <span class="hljs-built_in">type</span>: <span class="hljs-string">&#x27;git&#x27;</span>
+  repo: <span class="hljs-string">&#x27;git@47.102.126.177:/home/git/hexo.git&#x27;</span>
+  branch: <span class="hljs-string">&#x27;master&#x27;</span></code></pre>
+
+<p>哦 ， 除了这里之外 ，还需要配置 url 字段:</p>
+<pre><code class="hljs bash"><span class="hljs-comment"># URL</span>
+<span class="hljs-comment">##  填写你的域名 或者 公网 ip</span>
+url: http://chalicelee.xin</code></pre>
+
+<h2 id="Hexo-自动部署"><a href="#Hexo-自动部署" class="headerlink" title="Hexo 自动部署"></a>Hexo 自动部署</h2><p>以上步骤完成 ，我们就来测试下是否成功部署，打开我们初始化的项目，根目录打开终端，输入命令：</p>
+<pre><code class="hljs bash">hexo new 文章名称</code></pre>
+
+<p>这样我们的<code>source</code>文件夹下的 <code>_posts</code> 文件夹下会自动生成 <code>文章名称.md</code> 。<br>我们随便写点东西吧。</p>
+<p>写完之后 ，我们终端执行命令：</p>
+<pre><code class="hljs bash">hexo cl
+hexo g
+hexo d</code></pre>
+
+<p>一个命令一个命令执行后 ， 我们打开我们的域名或者 ip ，看看能否访问到我们初始化的博客页面， 看看我们新增的文章是否有显示吧。</p>
+<p>如果有， 恭喜你， 自动部署已经成功，之后我们写文章 ，就可以直接在本地写完之后， 通过上述三个 hexo 命令 ，就可以发布到我们的服务器上了。</p>
+<h2 id="配置-hexo-主题"><a href="#配置-hexo-主题" class="headerlink" title="配置 hexo 主题"></a>配置 hexo 主题</h2><p>默认的主题好像不太喜欢。</p>
+<p>没关系 ，我们可以换一个， 打开 hexo 官网， 找到主题， 直接选择一个自己喜欢的点击进入 github ，然后下载下来在 放到我们的 themes 目录下，然后配置下 _config.yml ：</p>
+<pre><code class="hljs bash"><span class="hljs-comment"># Extensions</span>
+<span class="hljs-comment">## Plugins: https://hexo.io/plugins/</span>
+<span class="hljs-comment">## Themes: https://hexo.io/themes/</span>
+theme: fluid  <span class="hljs-comment"># 这个 fluid 就是主题名称 一般是你下载的主题文件夹名称 具体看主题文档 写入</span></code></pre>
+
+<p>更多的主题配置 你可以查看你所下载的主题文档， 或者 去 hexo 文档查看配置。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>上述配置看起来复杂其实还算是很简单的，整体流程下来也没有遇到什么坑，但是有一点疑惑的是 nginx 配置代理后 ，网页打开 url 后 会多了个 /? 的问题，不知道怎么回事，懂的大佬请赐教。</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Hexo/">Hexo</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">博客搭建</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/articles/2020/10/28/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%89%8D%E5%BA%8F%E9%81%8D%E5%8E%86/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">二叉树的前序遍历</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/articles/2020/09/01/vue-config%E9%85%8D%E7%BD%AE/">
+                        <span class="hidden-mobile">vue.config配置</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <!-- <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div> -->
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '#post-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "Hexo 自动部署&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+  
+  
+    <script>
+      !function (e, t, a) {
+        function r() {
+          for (var e = 0; e < s.length; e++) s[e].alpha <= 0 ? (t.body.removeChild(s[e].el), s.splice(e, 1)) : (s[e].y--, s[e].scale += .004, s[e].alpha -= .013, s[e].el.style.cssText = "left:" + s[e].x + "px;top:" + s[e].y + "px;opacity:" + s[e].alpha + ";transform:scale(" + s[e].scale + "," + s[e].scale + ") rotate(45deg);background:" + s[e].color + ";z-index:99999");
+          requestAnimationFrame(r)
+        }
+
+        function n() {
+          var t = "function" == typeof e.onclick && e.onclick;
+          e.onclick = function (e) {
+            t && t(), o(e)
+          }
+        }
+
+        function o(e) {
+          var a = t.createElement("div");
+          a.className = "heart", s.push({
+            el: a,
+            x: e.clientX - 5,
+            y: e.clientY - 5,
+            scale: 1,
+            alpha: 1,
+            color: c()
+          }), t.body.appendChild(a)
+        }
+
+        function i(e) {
+          var a = t.createElement("style");
+          a.type = "text/css";
+          try {
+            a.appendChild(t.createTextNode(e))
+          } catch (t) {
+            a.styleSheet.cssText = e
+          }
+          t.getElementsByTagName("head")[0].appendChild(a)
+        }
+
+        function c() {
+          return "rgb(" + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + ")"
+        }
+
+        var s = [];
+        e.requestAnimationFrame = e.requestAnimationFrame || e.webkitRequestAnimationFrame || e.mozRequestAnimationFrame || e.oRequestAnimationFrame || e.msRequestAnimationFrame || function (e) {
+          setTimeout(e, 1e3 / 60)
+        }, i(".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}"), n(), r()
+      }(window, document);
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

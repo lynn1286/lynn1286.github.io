@@ -1,0 +1,936 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/bitbug_favicon.ico">
+  <link rel="icon" type="image/png" href="/img/bitbug_favicon.ico">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="且视他人之疑目如盏盏鬼火，大胆地去走自己的路。">
+  <meta name="author" content="lynn1286💭">
+  <meta name="keywords" content="前端博客,JavaScript,html5,css3,Jquery,NodeJs,Vue,React">
+  <title>lynn1286💭</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_6peoq002giu.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.1.1"></head>
+
+
+<body>
+  <header style="height: 100vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>lynn1286💭</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/image_one.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container page-header text-center fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+          </div>
+
+          
+            <div class="scroll-down-bar">
+              <i class="iconfont icon-arrowdown"></i>
+            </div>
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      <div class="container nopadding-md">
+        <div class="py-5" id="board"
+          style=margin-top:0>
+          
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-md-10 m-auto">
+                
+
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/articles/2022/01/07/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E6%94%B6%E9%9B%86/" target="_self">
+          <img src="/img/image_one.jpg" srcset="/img/loading.gif" alt="2022年前端面试收集">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        <a href="/articles/2022/01/07/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E6%94%B6%E9%9B%86/">2022年前端面试收集</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/articles/2022/01/07/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E6%94%B6%E9%9B%86/">
+          
+          
+            
+          
+          cdn 的好处是什么？它的原理有了解过吗？没有CDN网站的工作原理:
+
+用户在自己的浏览器中输入要访问的网站域名。
+浏览器向本地DNS服务器请求对该域名的解析。
+本地DNS服务器中如果缓存有这个域名的解析结果，则直接响应用户的解析请求。
+本地DNS服务器中如果没有关于这个域名的解析结果的缓存，则以递归或迭代方式向整个DNS系统请求解析，获得应答后将结果反馈给浏览器。
+浏览器得到域名解析结果，就是该
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-01-07 22:06" pubdate>
+              2022-01-07
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/">面试题</a>
+            
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/articles/2020/12/10/vue3%E9%9D%A2%E8%AF%95%E9%A2%98/" target="_self">
+          <img src="/img/image_one.jpg" srcset="/img/loading.gif" alt="vue3面试题">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        <a href="/articles/2020/12/10/vue3%E9%9D%A2%E8%AF%95%E9%A2%98/">vue3面试题</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/articles/2020/12/10/vue3%E9%9D%A2%E8%AF%95%E9%A2%98/">
+          
+          
+            
+          
+          Vue3.0里有哪些是值得我们重点关注的点
+性能：Vue.js的发展，向来都是以提高开发与构建的速度为驱动，对比3.0和此前的Vue版本，这一点尤为明显。由于虚拟DOM已被完全重写，因此这个新版本将比以往更快。对于服务器端渲染，Vue.js 3.0.0的性能提高了2倍，速度提高了3倍。同时，组件的初始化现在也更加高效，甚至具有了编译器通知的快速执行路径。
+代码优化（Tree-shaking）：在V
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-12-10 12:12" pubdate>
+              2020-12-10
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/">面试题</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/vue/">vue</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/articles/2020/12/09/webpack%E9%9D%A2%E8%AF%95%E9%A2%98/" target="_self">
+          <img src="/img/image_one.jpg" srcset="/img/loading.gif" alt="webpack面试题">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        <a href="/articles/2020/12/09/webpack%E9%9D%A2%E8%AF%95%E9%A2%98/">webpack面试题</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/articles/2020/12/09/webpack%E9%9D%A2%E8%AF%95%E9%A2%98/">
+          
+          
+            
+          
+          webpack与grunt、gulp的不同  三者都是前端构建工具，grunt和gulp在早期比较流行，现在webpack相对来说比较主流，不过一些轻量化的任务还是会用gulp来处理，比如单独打包CSS文件等。  grunt和gulp是基于任务和流（Task、Stream）的。类似jQuery，找到一个（或一类）文件，对其做一系列链式操作，更新流上的数据， 整条链式操作构成了一个任务，多个任务就构
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-12-09 11:29" pubdate>
+              2020-12-09
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/">面试题</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/webpack/">webpack</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/articles/2020/12/08/react%E9%9D%A2%E8%AF%95%E9%A2%98/" target="_self">
+          <img src="/img/image_one.jpg" srcset="/img/loading.gif" alt="react面试题">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        <a href="/articles/2020/12/08/react%E9%9D%A2%E8%AF%95%E9%A2%98/">react面试题</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/articles/2020/12/08/react%E9%9D%A2%E8%AF%95%E9%A2%98/">
+          
+          
+            
+          
+          为什么要使用pureComponent  当使用component时，父组件的state或prop更新时，无论子组件的state、prop是否更新，都会触发子组件的更新，这会形成很多没必要的render，浪费很多性能；pureComponent的优点在于：pureComponent在shouldComponentUpdate只进行浅层的比较，只要外层对象没变化，就不会触发render,减少了不必要
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-12-08 17:08" pubdate>
+              2020-12-08
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/">面试题</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/react/">react</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/articles/2020/12/08/vue-router%E9%9D%A2%E8%AF%95%E9%A2%98/" target="_self">
+          <img src="/img/image_one.jpg" srcset="/img/loading.gif" alt="vue-router面试题">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        <a href="/articles/2020/12/08/vue-router%E9%9D%A2%E8%AF%95%E9%A2%98/">vue-router面试题</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/articles/2020/12/08/vue-router%E9%9D%A2%E8%AF%95%E9%A2%98/">
+          
+          
+            
+          
+          Vue-router 导航守卫有哪些  全局前置/钩子：beforeEach、beforeResolve、afterEach  路由独享的守卫：beforeEnter  组件内的守卫：beforeRouteEnter、beforeRouteUpdate、beforeRouteLeave
+vue-router hash 模式和 history 模式有什么区别  区别：    1. url 展示上，h
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-12-08 16:50" pubdate>
+              2020-12-08
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/">面试题</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/vue/">vue</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/articles/2020/12/07/Vuex%E9%9D%A2%E8%AF%95%E9%A2%98/" target="_self">
+          <img src="/img/image_one.jpg" srcset="/img/loading.gif" alt="Vuex面试题">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        <a href="/articles/2020/12/07/Vuex%E9%9D%A2%E8%AF%95%E9%A2%98/">Vuex面试题</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/articles/2020/12/07/Vuex%E9%9D%A2%E8%AF%95%E9%A2%98/">
+          
+          
+            
+          
+          Vuex和单纯的全局对象有什么区别  Vuex和全局对象主要有两大区别：    1. Vuex 的状态存储是响应式的。当 Vue 组件从 store 中读取状态的时候，若 store 中的状态发生变化，那么相应的组件也会相应地得到高效更新。    2. 不能直接改变 store 中的状态。改变 store 中的状态的唯一途径就是显式地提交 (commit) mutation。这样使得我们可以方便地
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-12-07 18:28" pubdate>
+              2020-12-07
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/">面试题</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/vue/">vue</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/articles/2020/12/07/vue%E9%9D%A2%E8%AF%95%E9%A2%98%E9%9B%86%E9%94%A6/" target="_self">
+          <img src="/img/image_one.jpg" srcset="/img/loading.gif" alt="vue面试题集锦">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        <a href="/articles/2020/12/07/vue%E9%9D%A2%E8%AF%95%E9%A2%98%E9%9B%86%E9%94%A6/">vue面试题集锦</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/articles/2020/12/07/vue%E9%9D%A2%E8%AF%95%E9%A2%98%E9%9B%86%E9%94%A6/">
+          
+          
+            
+          
+          如何保留页面状态，例如列表跳转到详情回退还是在原来位置  利用vue 内置组件 keep-alive 以及 vue-router实现
+  具体做法： 在路由表中配置 meta 字段， 写入两个属性用来判断是否需要缓存并且记录 滚动条位置，在vue页面中， 使用 beforeRouteEnter 和 beforeRouteLeave两个api判断进入来源并判断meta标签的属性是否需要缓存并设置滚动
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-12-07 11:37" pubdate>
+              2020-12-07
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/">面试题</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/vue/">vue</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/articles/2020/12/07/css%E9%9D%A2%E8%AF%95%E9%A2%98/" target="_self">
+          <img src="/img/image_one.jpg" srcset="/img/loading.gif" alt="css面试题">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        <a href="/articles/2020/12/07/css%E9%9D%A2%E8%AF%95%E9%A2%98/">css面试题</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/articles/2020/12/07/css%E9%9D%A2%E8%AF%95%E9%A2%98/">
+          
+          
+            
+          
+          谈谈你对 CSS 盒模型的认识  盒子模型分两种:
+1. 标准模型
+2. IE模型
+  标准模型: 标准 W3C 盒子模型的范围包括 margin、border、padding、content，并且 content 部分不包含其他部分。  IE模型: IE 盒子模型的范围也包括 margin、border、padding、content，和标准 W3C 盒子模型不同的是：IE 盒子模型的 cont
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-12-07 10:09" pubdate>
+              2020-12-07
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/">面试题</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/css/">css</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/articles/2020/11/27/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98%E6%94%B6%E9%9B%86/" target="_self">
+          <img src="/img/image_one.jpg" srcset="/img/loading.gif" alt="前端面试题收集">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        <a href="/articles/2020/11/27/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98%E6%94%B6%E9%9B%86/">前端面试题收集</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/articles/2020/11/27/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98%E6%94%B6%E9%9B%86/">
+          
+          
+            
+          
+          promise.all 和 promise.race 区别promise.all :比如当数组里的 P1，P2 都执行完成时，页面才显示。值得注意的是，返回的数组结果顺序不会改变，即使 P2 的返回要比 P1 的返回快，顺序依然是 P1，P2Promise.all 成功返回成功数组,失败返回失败数据, 一但失败就不会继续往下走
+promise.race :Promise.race 是赛跑的意思，也
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-11-27 00:57" pubdate>
+              2020-11-27
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/">面试题</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E4%B8%AD%E7%BA%A7/">中级</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/articles/2020/11/02/%E4%B8%A4%E4%B8%AA%E6%95%B0%E7%BB%84%E7%9A%84%E4%BA%A4%E9%9B%86/" target="_self">
+          <img src="/img/image_one.jpg" srcset="/img/loading.gif" alt="两个数组的交集">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        <a href="/articles/2020/11/02/%E4%B8%A4%E4%B8%AA%E6%95%B0%E7%BB%84%E7%9A%84%E4%BA%A4%E9%9B%86/">两个数组的交集</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/articles/2020/11/02/%E4%B8%A4%E4%B8%AA%E6%95%B0%E7%BB%84%E7%9A%84%E4%BA%A4%E9%9B%86/">
+          
+          
+            
+          
+          两个数组的交集给定两个数组，编写一个函数来计算它们的交集。
+示例 1：
+输入：nums1 = [1,2,2,1], nums2 = [2,2]
+输出：[2]
+
+示例 2：
+输入：nums1 = [4,9,5], nums2 = [9,4,9,8,4]
+输出：[9,4]
+
+
+  
+    答案
+  
+  
+  set集合解题法：
+    使用set集合解题， 判断集合的每一项是否存在另一个集合当中
+
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-11-02 14:44" pubdate>
+              2020-11-02
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E7%AE%97%E6%B3%95/">算法</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/set-%E9%9B%86%E5%90%88/">set 集合</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+
+
+  <nav aria-label="navigation">
+    <span class="pagination" id="pagination">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="iconfont icon-arrowright"></i></a>
+    </span>
+  </nav>
+  
+  <script>
+    for (ele of document.getElementById("pagination").getElementsByTagName("a")) {
+      ele.href += '#board';
+    }
+  </script>
+
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <!-- <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div> -->
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "且视他人之疑目如盏盏鬼火，大胆地去走自己的路。&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+
+
+
+
+
+
+  
+  
+    <script>
+      !function (e, t, a) {
+        function r() {
+          for (var e = 0; e < s.length; e++) s[e].alpha <= 0 ? (t.body.removeChild(s[e].el), s.splice(e, 1)) : (s[e].y--, s[e].scale += .004, s[e].alpha -= .013, s[e].el.style.cssText = "left:" + s[e].x + "px;top:" + s[e].y + "px;opacity:" + s[e].alpha + ";transform:scale(" + s[e].scale + "," + s[e].scale + ") rotate(45deg);background:" + s[e].color + ";z-index:99999");
+          requestAnimationFrame(r)
+        }
+
+        function n() {
+          var t = "function" == typeof e.onclick && e.onclick;
+          e.onclick = function (e) {
+            t && t(), o(e)
+          }
+        }
+
+        function o(e) {
+          var a = t.createElement("div");
+          a.className = "heart", s.push({
+            el: a,
+            x: e.clientX - 5,
+            y: e.clientY - 5,
+            scale: 1,
+            alpha: 1,
+            color: c()
+          }), t.body.appendChild(a)
+        }
+
+        function i(e) {
+          var a = t.createElement("style");
+          a.type = "text/css";
+          try {
+            a.appendChild(t.createTextNode(e))
+          } catch (t) {
+            a.styleSheet.cssText = e
+          }
+          t.getElementsByTagName("head")[0].appendChild(a)
+        }
+
+        function c() {
+          return "rgb(" + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + ")"
+        }
+
+        var s = [];
+        e.requestAnimationFrame = e.requestAnimationFrame || e.webkitRequestAnimationFrame || e.mozRequestAnimationFrame || e.oRequestAnimationFrame || e.msRequestAnimationFrame || function (e) {
+          setTimeout(e, 1e3 / 60)
+        }, i(".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}"), n(), r()
+      }(window, document);
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

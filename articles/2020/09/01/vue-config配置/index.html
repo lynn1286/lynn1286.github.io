@@ -1,0 +1,1247 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/bitbug_favicon.ico">
+  <link rel="icon" type="image/png" href="/img/bitbug_favicon.ico">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="且视他人之疑目如盏盏鬼火，大胆地去走自己的路。">
+  <meta name="author" content="lynn1286💭">
+  <meta name="keywords" content="前端博客,JavaScript,html5,css3,Jquery,NodeJs,Vue,React">
+  <title>vue.config配置 - lynn1286💭</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_6peoq002giu.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.1.1"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>lynn1286💭</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/image_one.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container page-header text-center fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2020-09-01 11:48" pubdate>
+      2020年9月1日 中午
+    </time>
+  </div>
+
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      4.8k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      74
+       分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto" id="post">
+            <!-- SEO header -->
+            <h1 style="display: none">vue.config配置</h1>
+            
+            <div class="markdown-body" id="post-body">
+              <h2 id="代码规范配置"><a href="#代码规范配置" class="headerlink" title="代码规范配置"></a>代码规范配置</h2><p>使用 vue created 命令搭建一个基本的架子出来 , 把 vuex router 等都勾选上.</p>
+<p>接下来打开项目开始进行配置:</p>
+<p>我们先来配置一下这个代码规范的问题，在这里我们需要使用到的工具有:vetur，eslint，prettier，首先我们要在项目中安装一个包：@vue/prettier</p>
+<pre><code class="hljs bash">yarn add -D @vue/eslint-config-prettier</code></pre>
+
+<p>安装好之后，在 .eslintrc.js 给它加上：</p>
+<pre><code class="hljs javascript"><span class="hljs-string">&quot;extends&quot;</span>: [
+  <span class="hljs-string">&quot;plugin:vue/essential&quot;</span>,
+  <span class="hljs-string">&quot;eslint:recommended&quot;</span>,
+  <span class="hljs-string">&quot;@vue/prettier&quot;</span>
+],</code></pre>
+
+<p>现在我们执行 npm run lint 的时候，可以看到 eslint 已经帮我们启动了代码规范， 但是很多东西都不能按照我们的想法来执行的，这个时候我们还需要做一些配置：</p>
+<p>在项目的根目录下创建一个.prettierrc.js 文件，然后在其中加入：</p>
+<pre><code class="hljs javascript"><span class="hljs-built_in">module</span>.exports = &#123;
+ semi: <span class="hljs-literal">false</span>, <span class="hljs-comment">//行位是否使用分号，默认为true</span>
+ singleQuote: <span class="hljs-literal">true</span>, <span class="hljs-comment">//  是否使用单引号</span>
+ <span class="hljs-comment">// bracketSpacing: true, //对象大括号直接是否有空格，默认为true，效果：&#123; foo: bar &#125;</span>
+ <span class="hljs-comment">// &quot;printWidth&quot;: 80, //一行的字符数，如果超过会进行换行，默认为80</span>
+ <span class="hljs-comment">// &quot;tabWidth&quot;: 2, //一个tab代表几个空格数，默认为80</span>
+ <span class="hljs-comment">// &quot;useTabs&quot;: false, //是否使用tab进行缩进，默认为false，表示用空格进行缩减</span>
+ <span class="hljs-comment">// &quot;trailingComma&quot;: &quot;none&quot;, //是否使用尾逗号，有三个可选值&quot;&lt;none|es5|all&gt;&quot;</span>
+ <span class="hljs-comment">// parser: &quot;babylon&quot; //代码的解析引擎，默认为babylon，与babel相同。</span>
+&#125;;</code></pre>
+
+<p>到了这里，即时有上千个 VUE 文件，我们也可以通过 npm run lint 处理我们的错误规范代码</p>
+<p>配置到这里我们已经可以实现代码规范了， 但是为了能够在 vscode 编辑器看到我们的错误规范，我们还需要装一个插件，这个插件就叫 Eslint。</p>
+<p>安装好 eslint 后，因为 eslint 并不认识我们 vue 文件里面包含了 js 语法，所以我们还需要打开我们的 vscode 配置文件，这里的配置只是配置我们个人的文件，并没有达到团队的配置效果，所以我们要在项目中创建一个.vscode 文件夹，但是这里需要注意一个问题：.vscode 这个文件夹在.gitignore 文件里面，所以千万要记得把.vscode 删除</p>
+<p>做好上面的一步之后，在.vscode 里面创建文件 settings.json 文件，添加如下代码：</p>
+<pre><code class="hljs json">&#123;
+ <span class="hljs-attr">&quot;eslint.autoFixOnSave&quot;</span>: <span class="hljs-literal">true</span>,
+ <span class="hljs-attr">&quot;eslint.validate&quot;</span>: [
+  <span class="hljs-string">&quot;javascript&quot;</span>,
+  <span class="hljs-string">&quot;javascriptreact&quot;</span>,
+  &#123;
+   <span class="hljs-attr">&quot;language&quot;</span>: <span class="hljs-string">&quot;vue&quot;</span>,
+   <span class="hljs-attr">&quot;autoFix&quot;</span>: <span class="hljs-literal">true</span>
+  &#125;
+ ]
+&#125;</code></pre>
+
+<p>上面的配置就是在保存的时候校验并修改我们的代码，它会自动帮我们整理代码规范</p>
+<p>配置到这里其实已经结束了，但是因为我们安装了很多插件，例如 Prettier ， 因为我们不只开发 vue 项目，可能还有其它类型的 js 项目特别是传统 js 项目，需要用到 prettier 进行美化，而 prettier 的一些功能是会和 eslint 相冲突的，比如说我们在全局设置了 prettier 的 formatOnSave，这个功能就会和 eslint 的 autoFixOnSave 打架，为了避免这个矛盾，我们通常还会在本项目的 settings.json 文件里再多加几个选项，类似于这样：</p>
+<pre><code class="hljs json">&quot;editor.tabSize&quot;: 2,
+&quot;editor.formatOnSave&quot;: false,
+&quot;prettier.semi&quot;: false,
+&quot;prettier.singleQuote&quot;: true</code></pre>
+
+<p>有了这些设置，基本上 prettier 就不会和 eslint 打架了。</p>
+<h2 id="配置-git-hook-以及提交规范"><a href="#配置-git-hook-以及提交规范" class="headerlink" title="配置 git hook 以及提交规范"></a>配置 git hook 以及提交规范</h2><p>项目级安装:</p>
+<p>如果想要在全局安装, 可以看这篇<a target="_blank" rel="noopener" href="https://juejin.im/post/5afc5242f265da0b7f44bee4">文章</a></p>
+<pre><code class="hljs bash">npm install -D commitizen cz-conventional-changelog</code></pre>
+
+<p>然后在 package.json 中配置:</p>
+<pre><code class="hljs json">&quot;script&quot;: &#123;
+&quot;commit&quot;: &quot;git-cz&quot;,
+&#125;,
+&quot;config&quot;: &#123;
+    &quot;commitizen&quot;: &#123;
+        &quot;path&quot;: &quot;node_modules/cz-conventional-changelog&quot;
+    &#125;
+&#125;</code></pre>
+
+<p>如果全局安装过 commitizen, 那么在对应的项目中执行 git cz 或者 npm run commit 都可以。</p>
+<p>注意： 如果没有全局安装 commitizen ， git cz 是无法执行的。</p>
+<p>走完上述操作后其实已经可以实现我们提交的规范了, 但是 Angular 这一套规范我们可能不太习惯, 那么可以通过指定 Adapter cz-customizable 指定一套符合自己团队的规范.</p>
+<p>项目级安装 cz-customizable</p>
+<pre><code class="hljs bash">npm i -D cz-customizable</code></pre>
+
+<p>然后修改 package.json 中的 config 为:</p>
+<pre><code class="hljs json">&quot;config&quot;: &#123;
+    &quot;commitizen&quot;: &#123;
+        &quot;path&quot;: &quot;node_modules/cz-customizable&quot;
+    &#125;
+&#125;</code></pre>
+
+<p>然后在项目目录下创建 .cz-config.js 文件 , 注明: 配置出自 GitHub： <a target="_blank" rel="noopener" href="https://gist.github.com/leohxj/7bc928f60bfa46a3856ddf7c0f91ab98">Leo Hui</a></p>
+<pre><code class="hljs javascript"><span class="hljs-meta">&#x27;use strict&#x27;</span>;
+
+<span class="hljs-built_in">module</span>.exports = &#123;
+ types: [
+  &#123;
+   value: <span class="hljs-string">&#x27;WIP&#x27;</span>,
+   name: <span class="hljs-string">&#x27;💪  WIP:      Work in progress&#x27;</span>,
+  &#125;,
+  &#123;
+   value: <span class="hljs-string">&#x27;feat&#x27;</span>,
+   name: <span class="hljs-string">&#x27;✨  feat:     A new feature&#x27;</span>,
+  &#125;,
+  &#123;
+   value: <span class="hljs-string">&#x27;fix&#x27;</span>,
+   name: <span class="hljs-string">&#x27;🐞  fix:      A bug fix&#x27;</span>,
+  &#125;,
+  &#123;
+   value: <span class="hljs-string">&#x27;refactor&#x27;</span>,
+   name: <span class="hljs-string">&#x27;🛠  refactor: A code change that neither fixes a bug nor adds a feature&#x27;</span>,
+  &#125;,
+  &#123;
+   value: <span class="hljs-string">&#x27;docs&#x27;</span>,
+   name: <span class="hljs-string">&#x27;📚  docs:     Documentation only changes&#x27;</span>,
+  &#125;,
+  &#123;
+   value: <span class="hljs-string">&#x27;test&#x27;</span>,
+   name: <span class="hljs-string">&#x27;🏁  test:     Add missing tests or correcting existing tests&#x27;</span>,
+  &#125;,
+  &#123;
+   value: <span class="hljs-string">&#x27;chore&#x27;</span>,
+   name: <span class="hljs-string">&quot;🗯  chore:    Changes that don&#x27;t modify src or test files. Such as updating build tasks, package manager&quot;</span>,
+  &#125;,
+  &#123;
+   value: <span class="hljs-string">&#x27;style&#x27;</span>,
+   name: <span class="hljs-string">&#x27;💅  style:    Code Style, Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)&#x27;</span>,
+  &#125;,
+  &#123;
+   value: <span class="hljs-string">&#x27;revert&#x27;</span>,
+   name: <span class="hljs-string">&#x27;⏪  revert:   Revert to a commit&#x27;</span>,
+  &#125;,
+ ],
+
+ scopes: [],
+
+ allowCustomScopes: <span class="hljs-literal">true</span>,
+ allowBreakingChanges: [<span class="hljs-string">&#x27;feat&#x27;</span>, <span class="hljs-string">&#x27;fix&#x27;</span>],
+&#125;;</code></pre>
+
+<p>接下来我们再配置 校验 message 是否合法 , 如果不合法则拒绝提交.</p>
+<p>项目级安装：</p>
+<pre><code class="hljs bash">npm i -D @commitlint/config-conventional @commitlint/cli</code></pre>
+
+<p>同时需要在项目目录下创建配置文件 .commitlintrc.js, 写入<a target="_blank" rel="noopener" href="https://github.com/conventional-changelog/commitlint/blob/master/@commitlint/config-conventional/index.js">示例配置</a>:</p>
+<pre><code class="hljs javascript"><span class="hljs-built_in">module</span>.exports = &#123;
+ <span class="hljs-keyword">extends</span>: [<span class="hljs-string">&#x27;@commitlint/config-conventional&#x27;</span>],
+ rules: &#123;&#125;,
+&#125;;</code></pre>
+
+<p>如果您是自定义的 Adapter 那么您可能需要针对自定义的 Adapter 进行 Lint：</p>
+<p>上述配置是使用了 符合 Angular 团队规范 的 Adapter , 而要根据我们自定义的 commitizen adapter , 则需要安装:</p>
+<pre><code class="hljs bash">npm i -D commitlint-config-cz @commitlint/cli</code></pre>
+
+<p>.commitlintrc.js 中写入:</p>
+<pre><code class="hljs javascript"><span class="hljs-built_in">module</span>.exports = &#123;
+ <span class="hljs-keyword">extends</span>: [<span class="hljs-string">&#x27;cz&#x27;</span>],
+ rules: &#123;&#125;,
+&#125;;</code></pre>
+
+<p>结合 Husky:</p>
+<p>校验 commit message 的最佳方式是结合 git hook, 所以需要配合 <a target="_blank" rel="noopener" href="https://github.com/typicode/husky">Husky</a>.</p>
+<p>这个插件是可以让我们在 git commit 之前 都执行一次 hook 脚本</p>
+<pre><code class="hljs bash">npm install husky --save-dev</code></pre>
+
+<p>package.json 中添加:</p>
+<pre><code class="hljs json">&quot;husky&quot;: &#123;
+    &quot;hooks&quot;: &#123;
+        &quot;pre-commit&quot;: &quot;npm run lint&quot;,
+        &quot;commit-msg&quot;: &quot;commitlint -E HUSKY_GIT_PARAMS&quot;
+    &#125;
+&#125;,</code></pre>
+
+<p>或者 创建 .huskyrc.js 添加:</p>
+<pre><code class="hljs javascript"><span class="hljs-built_in">module</span>.exports = &#123;
+ hooks: &#123;
+  <span class="hljs-string">&#x27;pre-commit&#x27;</span>: <span class="hljs-string">&#x27;npm run lint&#x27;</span>,
+  <span class="hljs-string">&#x27;commit-msg&#x27;</span>: <span class="hljs-string">&#x27;commitlint -E HUSKY_GIT_PARAMS&#x27;</span>,
+ &#125;,
+&#125;;</code></pre>
+
+<p>配置后在后续的每一次 git commit 之前，都会执行一次对应的 hook 脚本 npm run lint 。其他 hook 同理</p>
+<p>standard-version: 自动生成 CHANGELOG</p>
+<p>通过以上工具的帮助, 我们的工程 commit message 应该是符合 Angular 团队那套, 这样也便于我们借助 <a target="_blank" rel="noopener" href="https://github.com/conventional-changelog/standard-version">standard-version</a> 这样的工具, 自动生成 CHANGELOG, 甚至是 语义化的版本号(<a target="_blank" rel="noopener" href="https://semver.org/lang/zh-CN/">Semantic Version</a>).</p>
+<p>安装使用:</p>
+<pre><code class="hljs bash">npm i -S standard-version</code></pre>
+
+<p>package.json 配置:</p>
+<pre><code class="hljs json">&quot;scirpt&quot;: &#123;
+    &quot;release&quot;: &quot;standard-version&quot;
+&#125;</code></pre>
+
+<h3 id="vue-国际化配置"><a href="#vue-国际化配置" class="headerlink" title="vue 国际化配置"></a>vue 国际化配置</h3><p>我们使用 vue-i18n 来实现国际化。</p>
+<p>首先当然是安装啦：</p>
+<pre><code class="hljs bash">npm install vue-i18n -S</code></pre>
+
+<p>安装完毕后，写配置文件，我们先来完成语言包吧：</p>
+<pre><code class="hljs javascript"><span class="hljs-comment">//新建中文语言包：zh.js</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> &#123;
+ input: &#123;
+  placeholder: <span class="hljs-string">&#x27;请输入用户名&#x27;</span>,
+  password: <span class="hljs-string">&#x27;请输入密码&#x27;</span>,
+ &#125;,
+&#125;;</code></pre>
+
+<p>然后再新建英文语言包：</p>
+<pre><code class="hljs javascript"><span class="hljs-comment">// en.js</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> &#123;
+ input: &#123;
+  placeholder: <span class="hljs-string">&#x27;Please enter a user name&#x27;</span>,
+  password: <span class="hljs-string">&#x27;Please enter your password&#x27;</span>,
+ &#125;,
+&#125;;</code></pre>
+
+<p>这是 demo ，所以就弄这两种语言试试水。</p>
+<p>接下来新建一个 i18n.js 配置文件。</p>
+<pre><code class="hljs javascript"><span class="hljs-comment">// i18n.js</span>
+<span class="hljs-keyword">import</span> Vue <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;vue&#x27;</span>;
+<span class="hljs-keyword">import</span> VueI18n <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;vue-i18n&#x27;</span>;
+<span class="hljs-keyword">import</span> elementEnLocale <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;element-ui/lib/locale/lang/en&#x27;</span>; <span class="hljs-comment">// element-ui lang</span>
+<span class="hljs-keyword">import</span> elementZhLocale <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;element-ui/lib/locale/lang/zh-CN&#x27;</span>; <span class="hljs-comment">// element-ui lang</span>
+<span class="hljs-keyword">import</span> enLocale <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./lang/en&#x27;</span>;
+<span class="hljs-keyword">import</span> zhLocale <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./lang/zh&#x27;</span>;
+
+Vue.use(VueI18n);
+
+<span class="hljs-keyword">const</span> messages = &#123;
+ en: &#123;
+  ...enLocale,
+  ...elementEnLocale,
+ &#125;,
+ zh: &#123;
+  ...zhLocale,
+  ...elementZhLocale,
+ &#125;,
+&#125;;
+
+<span class="hljs-keyword">const</span> i18n = <span class="hljs-keyword">new</span> VueI18n(&#123;
+ locale: <span class="hljs-built_in">localStorage</span>.getItem(<span class="hljs-string">&#x27;locale&#x27;</span>) || <span class="hljs-string">&#x27;zh&#x27;</span>, <span class="hljs-comment">// set locale</span>
+ messages, <span class="hljs-comment">// set locale messages</span>
+&#125;);
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> i18n;</code></pre>
+
+<p>然后我们再来配置 mian.js.</p>
+<pre><code class="hljs javascript"><span class="hljs-keyword">import</span> Vue <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;vue&#x27;</span>;
+<span class="hljs-keyword">import</span> App <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./App.vue&#x27;</span>;
+<span class="hljs-keyword">import</span> router <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./router&#x27;</span>;
+<span class="hljs-keyword">import</span> store <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./store&#x27;</span>;
+<span class="hljs-keyword">import</span> <span class="hljs-string">&#x27;./registerServiceWorker&#x27;</span>;
+<span class="hljs-comment">// 引入element ui框架</span>
+<span class="hljs-keyword">import</span> ElementUI <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;element-ui&#x27;</span>;
+<span class="hljs-comment">// 引入element ui 样式文件</span>
+<span class="hljs-keyword">import</span> <span class="hljs-string">&#x27;element-ui/lib/theme-chalk/index.css&#x27;</span>;
+
+<span class="hljs-comment">// 引入阿里icon</span>
+<span class="hljs-keyword">import</span> <span class="hljs-string">&#x27;../public/img/icons/iconfont.css&#x27;</span>;
+<span class="hljs-comment">// 如果是使用svg就要引入iconfont.js这个文件</span>
+<span class="hljs-keyword">import</span> <span class="hljs-string">&#x27;../public/img/icons/iconfont&#x27;</span>;
+<span class="hljs-comment">// 国际化</span>
+<span class="hljs-keyword">import</span> i18n <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./common/i18n.js&#x27;</span>;
+
+<span class="hljs-comment">//全局注册组件</span>
+<span class="hljs-keyword">import</span> <span class="hljs-string">&#x27;./components/index&#x27;</span>;
+
+<span class="hljs-comment">//全局使用插件</span>
+Vue.use(ElementUI, &#123;
+ size: <span class="hljs-string">&#x27;medium&#x27;</span>, <span class="hljs-comment">// set element-ui default size</span>
+ i18n: <span class="hljs-function">(<span class="hljs-params">key, value</span>) =&gt;</span> i18n.t(key, value),
+&#125;);
+
+Vue.config.productionTip = <span class="hljs-literal">false</span>;
+
+<span class="hljs-keyword">new</span> Vue(&#123;
+ router,
+ store,
+ i18n, <span class="hljs-comment">// 国际化</span>
+ render: <span class="hljs-function"><span class="hljs-params">h</span> =&gt;</span> h(App),
+&#125;).$mount(<span class="hljs-string">&#x27;#app&#x27;</span>);</code></pre>
+
+<p>入口文件这里其他的我就不解释了，主要讲国际化，把我们的国际化配置文件引进来，引进来之后，注入到 vue 的实例里面去，这里有一个很重要的点，为了让 element 的内部组件语言也改变，所以下面这段代码不能少：</p>
+<pre><code class="hljs javascript"><span class="hljs-comment">//全局使用插件</span>
+Vue.use(ElementUI, &#123;
+ size: <span class="hljs-string">&#x27;medium&#x27;</span>, <span class="hljs-comment">// set element-ui default size</span>
+ i18n: <span class="hljs-function">(<span class="hljs-params">key, value</span>) =&gt;</span> i18n.t(key, value),
+&#125;);</code></pre>
+
+<p>具体原因别问我，我不懂，因为我也踩了好久的坑，才百度到这个。</p>
+<p>接下来就是使用了。</p>
+<pre><code class="hljs vue">&lt;template&gt;
+ &lt;div class&#x3D;&quot;login&quot;&gt;
+  &lt;el-input :placeholder&#x3D;&quot;$t(&#39;input.placeholder&#39;)&quot; prefix-icon&#x3D;&quot;icon-tubiao-15&quot; v-model&#x3D;&quot;input21&quot; &#x2F;&gt;
+  &lt;el-input :placeholder&#x3D;&quot;$t(&#39;input.password&#39;)&quot; prefix-icon&#x3D;&quot;icon-tubiao-15&quot; v-model&#x3D;&quot;input&quot; &#x2F;&gt;
+  &lt;div class&#x3D;&quot;lang&quot;&gt;
+   &lt;el-dropdown @command&#x3D;&quot;handleCommand&quot; size&#x3D;&quot;small&quot;&gt;
+    &lt;span class&#x3D;&quot;el-dropdown-link&quot;&gt; &#123;&#123; locale &#125;&#125;&lt;i class&#x3D;&quot;el-icon-arrow-down el-icon--right&quot;&gt;&lt;&#x2F;i&gt; &lt;&#x2F;span&gt;
+    &lt;el-dropdown-menu slot&#x3D;&quot;dropdown&quot;&gt;
+     &lt;el-dropdown-item command&#x3D;&quot;zh-CN&quot; :disabled&#x3D;&quot;locale &#x3D;&#x3D;&#x3D; &#39;中文&#39;&quot;&gt;中文&lt;&#x2F;el-dropdown-item&gt;
+     &lt;el-dropdown-item command&#x3D;&quot;en-US&quot; :disabled&#x3D;&quot;locale &#x3D;&#x3D;&#x3D; &#39;English&#39;&quot;&gt;English&lt;&#x2F;el-dropdown-item&gt;
+    &lt;&#x2F;el-dropdown-menu&gt;
+   &lt;&#x2F;el-dropdown&gt;
+  &lt;&#x2F;div&gt;
+  &lt;el-date-picker v-model&#x3D;&quot;value1&quot; type&#x3D;&quot;datetime&quot; :placeholder&#x3D;&quot;$t(&#39;input.placeholder&#39;)&quot;&gt; &lt;&#x2F;el-date-picker&gt;
+ &lt;&#x2F;div&gt;
+&lt;&#x2F;template&gt;
+
+&lt;script&gt;
+export default &#123;
+ name: &#39;login&#39;,
+ data() &#123;
+  return &#123;
+   input21: &#39;&#39;,
+   input: &#39;&#39;,
+   value1: &#39;&#39;,
+  &#125;;
+ &#125;,
+ computed: &#123;
+  locale() &#123;
+   if (this.$i18n.locale &#x3D;&#x3D;&#x3D; &#39;zh&#39;) &#123;
+    return &#39;中文&#39;;
+   &#125; else &#123;
+    return &#39;English&#39;;
+   &#125;
+  &#125;,
+ &#125;,
+ methods: &#123;
+  handleCommand(command) &#123;
+   if (command &#x3D;&#x3D; &#39;zh-CN&#39;) &#123;
+    localStorage.setItem(&#39;locale&#39;, &#39;zh&#39;);
+    this.$i18n.locale &#x3D; localStorage.getItem(&#39;locale&#39;);
+    console.log(this.$i18n.locale);
+    this.$message(&#123;
+     message: &#39;切换为中文！&#39;,
+     type: &#39;success&#39;,
+    &#125;);
+   &#125; else if (command &#x3D;&#x3D; &#39;en-US&#39;) &#123;
+    localStorage.setItem(&#39;locale&#39;, &#39;en&#39;);
+    this.$i18n.locale &#x3D; localStorage.getItem(&#39;locale&#39;);
+    console.log(this.$i18n.locale);
+    this.$message(&#123;
+     message: &#39;Switch to English!&#39;,
+     type: &#39;success&#39;,
+    &#125;);
+   &#125;
+  &#125;,
+ &#125;,
+&#125;;
+&lt;&#x2F;script&gt;
+
+&lt;style&gt;&lt;&#x2F;style&gt;</code></pre>
+
+<p>使用的话就是：</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">el-input</span> <span class="hljs-attr">:placeholder</span>=<span class="hljs-string">&quot;$t(&#x27;input.placeholder&#x27;)&quot;</span> <span class="hljs-attr">prefix-icon</span>=<span class="hljs-string">&quot;icon-tubiao-15&quot;</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">&quot;input21&quot;</span> /&gt;</span> // 属性里面这样用 <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>&#123;&#123;$t(&#x27;input.placeholder&#x27;)&#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span> // 标签内这样用。</code></pre>
+
+<p>这里面的值是我们写的语言包对象，key 是 input，value 是 placeholder，</p>
+<p>至于我们如何来根据事件更换语言包呢？</p>
+<p>直接改变它的值：this.$i18n.locale 就可以实现了，具体就是当你触发点击事件的时候，把这个值改变成你相应的语言包名字就可以了，注意，每次更换一点要把本地存储的值给覆盖哦。</p>
+<pre><code class="hljs javascript">handleCommand (command) &#123;
+  <span class="hljs-keyword">if</span> (command == <span class="hljs-string">&#x27;zh-CN&#x27;</span>) &#123;
+    <span class="hljs-built_in">localStorage</span>.setItem(<span class="hljs-string">&#x27;locale&#x27;</span>, <span class="hljs-string">&#x27;zh&#x27;</span>)
+    <span class="hljs-built_in">this</span>.$i18n.locale = <span class="hljs-built_in">localStorage</span>.getItem(<span class="hljs-string">&#x27;locale&#x27;</span>)
+    <span class="hljs-comment">// console.log(this.$i18n.locale);</span>
+    <span class="hljs-built_in">this</span>.$message(&#123;
+      message: <span class="hljs-string">&#x27;切换为中文！&#x27;</span>,
+      type: <span class="hljs-string">&#x27;success&#x27;</span>
+    &#125;)
+  &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (command == <span class="hljs-string">&#x27;en-US&#x27;</span>) &#123;
+    <span class="hljs-built_in">localStorage</span>.setItem(<span class="hljs-string">&#x27;locale&#x27;</span>, <span class="hljs-string">&#x27;en&#x27;</span>)
+    <span class="hljs-built_in">this</span>.$i18n.locale = <span class="hljs-built_in">localStorage</span>.getItem(<span class="hljs-string">&#x27;locale&#x27;</span>)
+    <span class="hljs-comment">// console.log(this.$i18n.locale);</span>
+    <span class="hljs-built_in">this</span>.$message(&#123;
+      message: <span class="hljs-string">&#x27;Switch to English!&#x27;</span>,
+      type: <span class="hljs-string">&#x27;success&#x27;</span>
+    &#125;)
+  &#125;
+&#125;</code></pre>
+
+<p>这样国际化就实现啦<del>~</del></p>
+<p>这里再提一个 bug，但是我想不清楚应该怎么解决，只能临时找到个比较 bug 的方式</p>
+<p>假如，我们有一个数组，也是需要配置国际化的，例如下拉框，看代码如下：</p>
+<pre><div class="caption"><span>javascript</span></div><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">el-select</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">&quot;value&quot;</span> <span class="hljs-attr">:placeholder</span>=<span class="hljs-string">&quot;$t(&#x27;input.placeholder&#x27;)&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">el-option</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">&quot;item in options&quot;</span></span>
+<span class="hljs-tag">                <span class="hljs-attr">:key</span>=<span class="hljs-string">&quot;item.id&quot;</span></span>
+<span class="hljs-tag">                <span class="hljs-attr">:label</span>=<span class="hljs-string">&quot;item.label&quot;</span></span>
+<span class="hljs-tag">                <span class="hljs-attr">:value</span>=<span class="hljs-string">&quot;item.id&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">el-option</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">el-select</span>&gt;</span>
+
+data () &#123;
+    return &#123;
+        options: this.$t(&#x27;input.options&#x27;)
+    &#125;
+&#125;,</code></pre>
+
+<p>我们都知道，vue 更改数组是要使用 this.$set()方法才能更新视图的，但是，这里是直接从语言包里面拿到一个数据，当你切换语言包的时候，视图并不会更新，需要手动刷新一次才能够显示，我这里暂时的解决方案是直接在切换语言的时候在那个事件上调用:</p>
+<pre><code class="hljs javascript"><span class="hljs-built_in">this</span>.$router.go(<span class="hljs-number">0</span>);</code></pre>
+
+<p>但是用户体验真心不好，哪位大哥知道更好的方法，求加微信：294999978 指教，本人小白一枚，真心感谢</p>
+<pre><code class="hljs javascript">handleCommand (command) &#123;
+  <span class="hljs-keyword">if</span> (command == <span class="hljs-string">&#x27;zh-CN&#x27;</span>) &#123;
+    <span class="hljs-built_in">localStorage</span>.setItem(<span class="hljs-string">&#x27;locale&#x27;</span>, <span class="hljs-string">&#x27;zh&#x27;</span>)
+    <span class="hljs-built_in">this</span>.$i18n.locale = <span class="hljs-built_in">localStorage</span>.getItem(<span class="hljs-string">&#x27;locale&#x27;</span>)
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">this</span>.$i18n.locale);
+    <span class="hljs-built_in">this</span>.$router.go(<span class="hljs-number">0</span>)<span class="hljs-comment">// 刷新页面，为的就是触发视图</span>
+    <span class="hljs-built_in">this</span>.$message(&#123;
+      message: <span class="hljs-string">&#x27;切换为中文！&#x27;</span>,
+      type: <span class="hljs-string">&#x27;success&#x27;</span>
+    &#125;)
+  &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (command == <span class="hljs-string">&#x27;en-US&#x27;</span>) &#123;
+    <span class="hljs-built_in">localStorage</span>.setItem(<span class="hljs-string">&#x27;locale&#x27;</span>, <span class="hljs-string">&#x27;en&#x27;</span>)
+    <span class="hljs-built_in">this</span>.$i18n.locale = <span class="hljs-built_in">localStorage</span>.getItem(<span class="hljs-string">&#x27;locale&#x27;</span>)
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">this</span>.$i18n.locale);
+    <span class="hljs-built_in">this</span>.$router.go(<span class="hljs-number">0</span>)  <span class="hljs-comment">// 刷新页面，为的就是触发视图</span>
+    <span class="hljs-built_in">this</span>.$message(&#123;
+      message: <span class="hljs-string">&#x27;Switch to English!&#x27;</span>,
+      type: <span class="hljs-string">&#x27;success&#x27;</span>
+    &#125;)
+  &#125;
+&#125;</code></pre>
+
+<h3 id="最后奉上项目的整体配置-以及源码的地址"><a href="#最后奉上项目的整体配置-以及源码的地址" class="headerlink" title="最后奉上项目的整体配置 , 以及源码的地址"></a>最后奉上项目的整体配置 , 以及<a target="_blank" rel="noopener" href="https://github.com/ChaliceLee92/vue_admin">源码的地址</a></h3><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> path = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;path&#x27;</span>);
+<span class="hljs-keyword">let</span> LodashModuleReplacementPlugin = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;lodash-webpack-plugin&#x27;</span>);
+<span class="hljs-keyword">const</span> BundleAnalyzerPlugin = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;webpack-bundle-analyzer&#x27;</span>).BundleAnalyzerPlugin;
+
+<span class="hljs-comment">// 配置别名</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">resolve</span>(<span class="hljs-params">dir</span>) </span>&#123;
+ <span class="hljs-keyword">return</span> path.join(__dirname, dir);
+&#125;
+
+<span class="hljs-comment">// gzip压缩</span>
+<span class="hljs-keyword">const</span> CompressionWebpackPlugin = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;compression-webpack-plugin&#x27;</span>);
+
+<span class="hljs-comment">// 代码压缩</span>
+<span class="hljs-keyword">const</span> UglifyJsPlugin = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;uglifyjs-webpack-plugin&#x27;</span>);
+
+<span class="hljs-comment">// 是否为生产环境</span>
+<span class="hljs-keyword">const</span> isProduction = process.env.NODE_ENV !== <span class="hljs-string">&#x27;development&#x27;</span>;
+
+<span class="hljs-comment">// 本地环境是否需要使用cdn</span>
+<span class="hljs-keyword">const</span> devNeedCdn = <span class="hljs-literal">false</span>;
+
+<span class="hljs-comment">// cdn链接</span>
+<span class="hljs-keyword">const</span> cdn = &#123;
+ <span class="hljs-comment">// cdn：模块名称和模块作用域命名（对应window里面挂载的变量名称）</span>
+ externals: &#123;
+  vue: <span class="hljs-string">&#x27;Vue&#x27;</span>,
+  vuex: <span class="hljs-string">&#x27;Vuex&#x27;</span>,
+  <span class="hljs-string">&#x27;vue-router&#x27;</span>: <span class="hljs-string">&#x27;VueRouter&#x27;</span>,
+  <span class="hljs-string">&#x27;element-ui&#x27;</span>: <span class="hljs-string">&#x27;ELEMENT&#x27;</span>,
+  axios: <span class="hljs-string">&#x27;axios&#x27;</span>,
+ &#125;,
+ <span class="hljs-comment">// cdn的css链接</span>
+ css: [<span class="hljs-string">&#x27;https://unpkg.com/element-ui/lib/theme-chalk/index.css&#x27;</span>],
+ <span class="hljs-comment">// cdn的js链接</span>
+ js: [<span class="hljs-string">&#x27;https://cdn.bootcss.com/vue/2.6.10/vue.min.js&#x27;</span>, <span class="hljs-string">&#x27;https://cdn.bootcss.com/vuex/3.1.1/vuex.min.js&#x27;</span>, <span class="hljs-string">&#x27;https://cdn.bootcss.com/vue-router/3.1.3/vue-router.min.js&#x27;</span>, <span class="hljs-string">&#x27;https://unpkg.com/element-ui/lib/index.js&#x27;</span>, <span class="hljs-string">&#x27;https://cdn.bootcss.com/axios/0.19.0-beta.1/axios.min.js&#x27;</span>],
+&#125;;
+
+<span class="hljs-comment">// 获取baseurl</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getProxy</span>(<span class="hljs-params">path, type</span>) </span>&#123;
+ <span class="hljs-keyword">if</span> (path === <span class="hljs-string">&#x27;/api&#x27;</span>) &#123;
+  <span class="hljs-keyword">switch</span> (type) &#123;
+   <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;localhost&#x27;</span>:
+    <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;http://106.52.38.245:9000/sys&#x27;</span>;
+   <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;service&#x27;</span>:
+    <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;http://106.52.38.245:9000/sys&#x27;</span>;
+  &#125;
+ &#125;
+&#125;
+
+<span class="hljs-built_in">module</span>.exports = &#123;
+ productionSourceMap: <span class="hljs-literal">false</span>,
+
+ chainWebpack: <span class="hljs-function"><span class="hljs-params">config</span> =&gt;</span> &#123;
+  config.resolve.alias.set(<span class="hljs-string">&#x27;@&#x27;</span>, resolve(<span class="hljs-string">&#x27;src&#x27;</span>)).set(<span class="hljs-string">&#x27;@assets&#x27;</span>, resolve(<span class="hljs-string">&#x27;src/assets&#x27;</span>)).set(<span class="hljs-string">&#x27;@components&#x27;</span>, resolve(<span class="hljs-string">&#x27;src/components&#x27;</span>)).set(<span class="hljs-string">&#x27;@router&#x27;</span>, resolve(<span class="hljs-string">&#x27;src/router&#x27;</span>)).set(<span class="hljs-string">&#x27;@views&#x27;</span>, resolve(<span class="hljs-string">&#x27;src/views&#x27;</span>)).set(<span class="hljs-string">&#x27;@store&#x27;</span>, resolve(<span class="hljs-string">&#x27;src/store&#x27;</span>)).set(<span class="hljs-string">&#x27;@utils&#x27;</span>, resolve(<span class="hljs-string">&#x27;src/utils&#x27;</span>)).set(<span class="hljs-string">&#x27;@interface&#x27;</span>, resolve(<span class="hljs-string">&#x27;src/http/interface&#x27;</span>));
+
+  <span class="hljs-comment">// ============压缩图片 start============</span>
+  config.module
+   .rule(<span class="hljs-string">&#x27;images&#x27;</span>)
+   .use(<span class="hljs-string">&#x27;image-webpack-loader&#x27;</span>)
+   .loader(<span class="hljs-string">&#x27;image-webpack-loader&#x27;</span>)
+   .options(
+    &#123;
+     mozjpeg: &#123; <span class="hljs-attr">progressive</span>: <span class="hljs-literal">true</span>, <span class="hljs-attr">quality</span>: <span class="hljs-number">65</span> &#125;,
+     optipng: &#123; <span class="hljs-attr">enabled</span>: <span class="hljs-literal">false</span> &#125;,
+     pngquant: &#123; <span class="hljs-attr">quality</span>: [<span class="hljs-number">0.65</span>, <span class="hljs-number">0.9</span>], <span class="hljs-attr">speed</span>: <span class="hljs-number">4</span> &#125;,
+     gifsicle: &#123; <span class="hljs-attr">interlaced</span>: <span class="hljs-literal">false</span> &#125;,
+     <span class="hljs-comment">// webp: &#123; quality: 75 &#125;</span>
+    &#125;,
+    &#123; <span class="hljs-attr">bypassOnDebug</span>: <span class="hljs-literal">true</span> &#125;
+   )
+   .end();
+  <span class="hljs-comment">// ============压缩图片 end============</span>
+
+  <span class="hljs-comment">// ============注入cdn start============</span>
+  config.plugin(<span class="hljs-string">&#x27;html&#x27;</span>).tap(<span class="hljs-function"><span class="hljs-params">args</span> =&gt;</span> &#123;
+   <span class="hljs-comment">// 生产环境或本地需要cdn时，才注入cdn</span>
+   <span class="hljs-keyword">if</span> (isProduction || devNeedCdn) args[<span class="hljs-number">0</span>].cdn = cdn;
+   <span class="hljs-comment">// 修复 Lazy loading routes Error</span>
+   args[<span class="hljs-number">0</span>].chunksSortMode = <span class="hljs-string">&#x27;none&#x27;</span>;
+   <span class="hljs-keyword">return</span> args;
+  &#125;);
+  <span class="hljs-comment">// ============注入cdn end============</span>
+
+  <span class="hljs-comment">// 修复HMR</span>
+  config.resolve.symlinks(<span class="hljs-literal">true</span>);
+
+  <span class="hljs-comment">// 移除 prefetch 插件不会加载其他路由文件，只加载当前路由文件</span>
+  config.plugins.delete(<span class="hljs-string">&#x27;prefetch&#x27;</span>);
+  <span class="hljs-comment">// preload插件作用，暂时未知</span>
+  config.plugins.delete(<span class="hljs-string">&#x27;preload&#x27;</span>);
+
+  <span class="hljs-comment">// 配置TypeScript</span>
+  config.resolve.extensions
+   .add(<span class="hljs-string">&#x27;.ts&#x27;</span>)
+   .add(<span class="hljs-string">&#x27;.tsx&#x27;</span>)
+   .end()
+   .end()
+   .module.rule(<span class="hljs-string">&#x27;typescript&#x27;</span>)
+   .test(<span class="hljs-regexp">/\.tsx?$/</span>)
+   .use(<span class="hljs-string">&#x27;babel-loader&#x27;</span>)
+   .loader(<span class="hljs-string">&#x27;babel-loader&#x27;</span>)
+   .end()
+   .use(<span class="hljs-string">&#x27;ts-loader&#x27;</span>)
+   .loader(<span class="hljs-string">&#x27;ts-loader&#x27;</span>)
+   .options(&#123;
+    transpileOnly: <span class="hljs-literal">true</span>,
+    appendTsSuffixTo: [<span class="hljs-string">&#x27;\\.vue$&#x27;</span>],
+    happyPackMode: <span class="hljs-literal">false</span>,
+   &#125;)
+   .end();
+ &#125;,
+ <span class="hljs-comment">// 如果你不需要使用eslint，把lintOnSave设为false即可</span>
+ lintOnSave: <span class="hljs-literal">true</span>,
+ css: &#123;
+  sourceMap: <span class="hljs-literal">false</span>, <span class="hljs-comment">// 开启 CSS source maps</span>
+  extract: <span class="hljs-literal">true</span>, <span class="hljs-comment">// 是否使用css分离插件 ExtractTextPlugin</span>
+  requireModuleExtension: <span class="hljs-literal">true</span>, <span class="hljs-comment">// false 会导致样式失效</span>
+  loaderOptions: &#123;
+   sass: &#123;
+    prependData: <span class="hljs-string">`@import &quot;@/assets/styles/varibles.scss&quot;;`</span>,
+   &#125;,
+  &#125;,
+ &#125;,
+ devServer: &#123;
+  <span class="hljs-comment">// historyApiFallback: true  // history 异步路由没有缓存在页面中，第一次进入页面会找不到 , 这个解决</span>
+  <span class="hljs-comment">// open: true,</span>
+  <span class="hljs-comment">// host: &#x27;localhost&#x27;,</span>
+  <span class="hljs-comment">// port: 8081,</span>
+  <span class="hljs-comment">// https: false,</span>
+  <span class="hljs-comment">// overlay: &#123;</span>
+  <span class="hljs-comment">//     warnings: true,</span>
+  <span class="hljs-comment">//     errors: true</span>
+  <span class="hljs-comment">// &#125;,</span>
+  <span class="hljs-comment">// proxy: &#123;</span>
+  <span class="hljs-comment">// 这里配置了 /sys 相当于就是 服务器的地址 . 例如: sys/login = http:localhost:8081/api/login</span>
+  <span class="hljs-comment">// &#x27;/sys&#x27;: &#123;</span>
+  <span class="hljs-comment">//     target: getProxy(&#x27;/api&#x27;, process.env.VUE_APP_TYPE),</span>
+  <span class="hljs-comment">//     ws: true,</span>
+  <span class="hljs-comment">//     changOrigin: true, //允许跨域</span>
+  <span class="hljs-comment">//     pathRewrite: &#123;</span>
+  <span class="hljs-comment">//         &#x27;^/sys&#x27;: &#x27;&#x27;</span>
+  <span class="hljs-comment">//     &#125;</span>
+  <span class="hljs-comment">// &#125;</span>
+  <span class="hljs-comment">// &#125;</span>
+ &#125;,
+ configureWebpack: <span class="hljs-function"><span class="hljs-params">config</span> =&gt;</span> &#123;
+  <span class="hljs-comment">// 生产环境相关配置</span>
+  <span class="hljs-keyword">if</span> (isProduction) &#123;
+   <span class="hljs-comment">// 代码压缩</span>
+   config.plugins.push(
+    <span class="hljs-keyword">new</span> UglifyJsPlugin(&#123;
+     uglifyOptions: &#123;
+      warnings: <span class="hljs-literal">false</span>, <span class="hljs-comment">// 若打包错误，则注释这行</span>
+      <span class="hljs-comment">//生产环境自动删除console</span>
+      compress: &#123;
+       drop_debugger: <span class="hljs-literal">true</span>,
+       drop_console: <span class="hljs-literal">true</span>,
+       pure_funcs: [<span class="hljs-string">&#x27;console.log&#x27;</span>],
+      &#125;,
+     &#125;,
+     sourceMap: <span class="hljs-literal">false</span>,
+     parallel: <span class="hljs-literal">true</span>,
+    &#125;)
+   );
+
+   <span class="hljs-comment">// gzip压缩</span>
+   <span class="hljs-keyword">const</span> productionGzipExtensions = [<span class="hljs-string">&#x27;html&#x27;</span>, <span class="hljs-string">&#x27;js&#x27;</span>, <span class="hljs-string">&#x27;css&#x27;</span>];
+   config.plugins.push(
+    <span class="hljs-keyword">new</span> CompressionWebpackPlugin(&#123;
+     filename: <span class="hljs-string">&#x27;[path].gz[query]&#x27;</span>,
+     algorithm: <span class="hljs-string">&#x27;gzip&#x27;</span>,
+     test: <span class="hljs-keyword">new</span> <span class="hljs-built_in">RegExp</span>(<span class="hljs-string">&#x27;\\.(&#x27;</span> + productionGzipExtensions.join(<span class="hljs-string">&#x27;|&#x27;</span>) + <span class="hljs-string">&#x27;)$&#x27;</span>),
+     threshold: <span class="hljs-number">10240</span>, <span class="hljs-comment">// 只有大小大于该值的资源会被处理 10240</span>
+     minRatio: <span class="hljs-number">0.8</span>, <span class="hljs-comment">// 只有压缩率小于这个值的资源才会被处理</span>
+     deleteOriginalAssets: <span class="hljs-literal">false</span>, <span class="hljs-comment">// 删除原文件</span>
+    &#125;)
+   );
+
+   <span class="hljs-comment">// 公共代码抽离  构建优化上我们使用了 happypack 来利用多核CPU 加快打包的速度。</span>
+   config.optimization = &#123;
+    <span class="hljs-comment">// https://webpack.js.org/plugins/split-chunks-plugin/</span>
+    splitChunks: &#123;
+     <span class="hljs-comment">// minSize: 1000000, // 单个文件的最小size</span>
+     <span class="hljs-comment">// maxSize: 2000000, // 单个文件最大的size</span>
+     <span class="hljs-comment">// minChunks: 2, // 最小被引用</span>
+     <span class="hljs-comment">// maxAsyncRequests: 5, // 首页加载资源</span>
+     <span class="hljs-comment">// maxInitialRequests: 3,</span>
+     <span class="hljs-comment">// automaticNameDelimiter: &#x27;~&#x27;, // 打包文件自定义的链接符</span>
+     <span class="hljs-comment">// name: true,</span>
+     <span class="hljs-comment">// chunks: &#x27;async&#x27;, // initial(初始块)、async(按需加载块)、all(默认，全部块)</span>
+     <span class="hljs-comment">// 这里需要注意的是如果使用initial 会将首页需要的依赖和项目本身的依赖打包2次增大文件体积</span>
+     cacheGroups: &#123;
+      <span class="hljs-keyword">default</span>: <span class="hljs-literal">false</span>,
+      vendors: &#123;
+       name: <span class="hljs-string">&#x27;chunk-vendors&#x27;</span>,
+       test: <span class="hljs-regexp">/[\\/]node_modules[\\/]/</span>,
+       chunks: <span class="hljs-string">&#x27;initial&#x27;</span>,
+       priority: <span class="hljs-number">2</span>,
+       reuseExistingChunk: <span class="hljs-literal">true</span>,
+       enforce: <span class="hljs-literal">true</span>,
+      &#125;,
+      common: &#123;
+       name: <span class="hljs-string">&#x27;chunk-common&#x27;</span>,
+       chunks: <span class="hljs-string">&#x27;initial&#x27;</span>,
+       minChunks: <span class="hljs-number">2</span>,
+       maxInitialRequests: <span class="hljs-number">5</span>,
+       minSize: <span class="hljs-number">0</span>,
+       priority: <span class="hljs-number">1</span>,
+       reuseExistingChunk: <span class="hljs-literal">true</span>,
+       enforce: <span class="hljs-literal">true</span>,
+      &#125;,
+      elementUI: &#123;
+       name: <span class="hljs-string">&#x27;chunk-elementui&#x27;</span>,
+       test: <span class="hljs-regexp">/[\\/]node_modules[\\/]element-ui[\\/]/</span>,
+       chunks: <span class="hljs-string">&#x27;all&#x27;</span>,
+       priority: <span class="hljs-number">3</span>,
+       reuseExistingChunk: <span class="hljs-literal">true</span>,
+       enforce: <span class="hljs-literal">true</span>,
+      &#125;,
+      echarts: &#123;
+       name: <span class="hljs-string">&#x27;chunk-echarts&#x27;</span>,
+       test: <span class="hljs-regexp">/[\\/]node_modules[\\/](vue-)?echarts[\\/]/</span>,
+       chunks: <span class="hljs-string">&#x27;all&#x27;</span>,
+       priority: <span class="hljs-number">4</span>,
+       reuseExistingChunk: <span class="hljs-literal">true</span>,
+       enforce: <span class="hljs-literal">true</span>,
+      &#125;,
+      vue: &#123;
+       test(<span class="hljs-built_in">module</span>) &#123;
+        <span class="hljs-keyword">let</span> path = <span class="hljs-built_in">module</span>.resource;
+        <span class="hljs-keyword">if</span> (!path) <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+        path = path.replace(<span class="hljs-regexp">/\\/g</span>, <span class="hljs-string">&#x27;/&#x27;</span>);
+        <span class="hljs-comment">// return path &amp;&amp; path.indexOf(&#x27;node_modules&#x27;) &gt; -1 &amp;&amp; path.indexOf(&#x27;vuetify&#x27;) &gt; -1</span>
+        <span class="hljs-keyword">return</span> path &amp;&amp; <span class="hljs-regexp">/node_modules\/vue/</span>.test(path);
+       &#125;,
+       name: <span class="hljs-string">&#x27;chunk-vuetify&#x27;</span>,
+       priority: <span class="hljs-number">9</span>,
+       enforce: <span class="hljs-literal">true</span>,
+      &#125;,
+      styles: &#123;
+       name: <span class="hljs-string">&#x27;styles&#x27;</span>,
+       test: <span class="hljs-regexp">/\.(sa|sc|c)ss$/</span>,
+       chunks: <span class="hljs-string">&#x27;all&#x27;</span>,
+       enforce: <span class="hljs-literal">true</span>,
+      &#125;,
+      runtimeChunk: &#123;
+       name: <span class="hljs-string">&#x27;manifest&#x27;</span>,
+      &#125;,
+     &#125;,
+    &#125;,
+   &#125;;
+
+   <span class="hljs-comment">// 可视化包大小</span>
+   config.plugins.push(
+    <span class="hljs-keyword">new</span> BundleAnalyzerPlugin(&#123;
+     analyzerMode: <span class="hljs-string">&#x27;server&#x27;</span>,
+     analyzerHost: <span class="hljs-string">&#x27;127.0.0.1&#x27;</span>,
+     analyzerPort: <span class="hljs-number">8889</span>,
+     reportFilename: <span class="hljs-string">&#x27;report.html&#x27;</span>,
+     defaultSizes: <span class="hljs-string">&#x27;parsed&#x27;</span>,
+     openAnalyzer: <span class="hljs-literal">false</span>,
+     generateStatsFile: <span class="hljs-literal">false</span>,
+     statsFilename: <span class="hljs-string">&#x27;stats.json&#x27;</span>,
+     statsOptions: <span class="hljs-literal">null</span>,
+     logLevel: <span class="hljs-string">&#x27;info&#x27;</span>,
+    &#125;)
+   );
+  &#125;
+  config.plugins.push(<span class="hljs-keyword">new</span> LodashModuleReplacementPlugin());
+
+  <span class="hljs-comment">// 用cdn方式引入，则构建时要忽略相关资源</span>
+  <span class="hljs-keyword">if</span> (isProduction || devNeedCdn) config.externals = cdn.externals;
+
+  <span class="hljs-comment">// 取消webpack警告的性能提示</span>
+  config.performance = &#123;
+   hints: <span class="hljs-string">&#x27;warning&#x27;</span>,
+   <span class="hljs-comment">//入口起点的最大体积</span>
+   maxEntrypointSize: <span class="hljs-number">50000000</span>,
+   <span class="hljs-comment">//生成文件的最大体积</span>
+   maxAssetSize: <span class="hljs-number">30000000</span>,
+   <span class="hljs-comment">//只给出 js 文件的性能提示</span>
+   assetFilter: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">assetFilename</span>) </span>&#123;
+    <span class="hljs-keyword">return</span> assetFilename.endsWith(<span class="hljs-string">&#x27;.js&#x27;</span>);
+   &#125;,
+  &#125;;
+
+  <span class="hljs-comment">// 配置TS</span>
+  <span class="hljs-comment">// config.resolve = &#123; extensions: [&#x27;.ts&#x27;, &#x27;.tsx&#x27;, &#x27;.js&#x27;, &#x27;.json&#x27;] &#125;</span>
+  <span class="hljs-comment">// config.module = &#123;</span>
+  <span class="hljs-comment">//     rules: [</span>
+  <span class="hljs-comment">//         &#123;</span>
+  <span class="hljs-comment">//             test: /.tsx?$/,</span>
+  <span class="hljs-comment">//             loader: &#x27;ts-loader&#x27;,</span>
+  <span class="hljs-comment">//             exclude: /node_modules/,</span>
+  <span class="hljs-comment">//             options: &#123;</span>
+  <span class="hljs-comment">//                 appendTsSuffixTo: [/.vue$/]</span>
+  <span class="hljs-comment">//             &#125;</span>
+  <span class="hljs-comment">//         &#125;</span>
+  <span class="hljs-comment">//     ]</span>
+  <span class="hljs-comment">// &#125;</span>
+ &#125;,
+ <span class="hljs-comment">// 第三方插件配置</span>
+ pluginOptions: &#123;&#125;,
+&#125;;</code></pre>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Vue/">Vue</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/vue-config-TS/">vue.config TS</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/articles/2020/09/02/Hexo-%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Hexo 自动部署</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/articles/2020/09/01/ssh%E9%85%8D%E7%BD%AE%E8%BF%9E%E6%8E%A5%E5%A4%9A%E5%8F%B0%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/">
+                        <span class="hidden-mobile">ssh配置连接多台服务器快捷键</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <!-- <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div> -->
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '#post-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "vue.config配置&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+  
+  
+    <script>
+      !function (e, t, a) {
+        function r() {
+          for (var e = 0; e < s.length; e++) s[e].alpha <= 0 ? (t.body.removeChild(s[e].el), s.splice(e, 1)) : (s[e].y--, s[e].scale += .004, s[e].alpha -= .013, s[e].el.style.cssText = "left:" + s[e].x + "px;top:" + s[e].y + "px;opacity:" + s[e].alpha + ";transform:scale(" + s[e].scale + "," + s[e].scale + ") rotate(45deg);background:" + s[e].color + ";z-index:99999");
+          requestAnimationFrame(r)
+        }
+
+        function n() {
+          var t = "function" == typeof e.onclick && e.onclick;
+          e.onclick = function (e) {
+            t && t(), o(e)
+          }
+        }
+
+        function o(e) {
+          var a = t.createElement("div");
+          a.className = "heart", s.push({
+            el: a,
+            x: e.clientX - 5,
+            y: e.clientY - 5,
+            scale: 1,
+            alpha: 1,
+            color: c()
+          }), t.body.appendChild(a)
+        }
+
+        function i(e) {
+          var a = t.createElement("style");
+          a.type = "text/css";
+          try {
+            a.appendChild(t.createTextNode(e))
+          } catch (t) {
+            a.styleSheet.cssText = e
+          }
+          t.getElementsByTagName("head")[0].appendChild(a)
+        }
+
+        function c() {
+          return "rgb(" + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + ")"
+        }
+
+        var s = [];
+        e.requestAnimationFrame = e.requestAnimationFrame || e.webkitRequestAnimationFrame || e.mozRequestAnimationFrame || e.oRequestAnimationFrame || e.msRequestAnimationFrame || function (e) {
+          setTimeout(e, 1e3 / 60)
+        }, i(".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}"), n(), r()
+      }(window, document);
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

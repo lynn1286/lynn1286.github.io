@@ -1,0 +1,643 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/bitbug_favicon.ico">
+  <link rel="icon" type="image/png" href="/img/bitbug_favicon.ico">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="且视他人之疑目如盏盏鬼火，大胆地去走自己的路。">
+  <meta name="author" content="lynn1286💭">
+  <meta name="keywords" content="前端博客,JavaScript,html5,css3,Jquery,NodeJs,Vue,React">
+  <title>阿里云服务器安装docker，部署gitlab步骤 - lynn1286💭</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_6peoq002giu.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.1.1"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>lynn1286💭</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/image_one.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container page-header text-center fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2020-09-01 11:37" pubdate>
+      2020年9月1日 中午
+    </time>
+  </div>
+
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.3k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      16
+       分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto" id="post">
+            <!-- SEO header -->
+            <h1 style="display: none">阿里云服务器安装docker，部署gitlab步骤</h1>
+            
+            <div class="markdown-body" id="post-body">
+              <p>对服务器内存有要求 , 如果内存小于 4g 会卡顿甚至连接不上服务器或者 gitlab 显示 502 访问慢等问题。</p>
+<h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><ul>
+<li>centos 8 亲测</li>
+<li>本地 mac 10.15.6</li>
+</ul>
+<h2 id="ssh-无密码登录"><a href="#ssh-无密码登录" class="headerlink" title="ssh 无密码登录"></a>ssh 无密码登录</h2><p>步骤一：<br>登录阿里云 ECS 实例 ， 创建密钥对。<br>在 管理后台选 网络与安全 ， 选密钥对 ，右上角创建密钥对 ， 这里主要 ， 密钥对创建好了之后 ，浏览器会自动下载私钥文件 .pem , 如果丢失 ， 则无法找回。<br>密钥对创建好了之后 ， 在密钥对列表点击绑定密钥对 ，然后选中要绑定的 ecs 实例（如果实例为 window 实例不支持 ssh 密钥对）。<br>绑定后一定要重启实例 ，密钥对才会生效， 对了， 安全组记得开发 ssh 端口（SSH 协议默认的 22 端口）</p>
+<p>步骤二：<br>找到创建后下载的 .pem 私钥路径 ，<br>然后在本地终端运行命令： chmod 400 [.pem 私钥文件在本地机上的存储路径]，<br>然后使用 ssh 命令连接远程实例： ssh -i [.pem 私钥文件在本地机上的存储路径] root@[公网 IP 地址]，</p>
+<h2 id="ssh-配置文件"><a href="#ssh-配置文件" class="headerlink" title="ssh 配置文件"></a>ssh 配置文件</h2><p>每次连接命令输入有点长， 我们可以配置下 config 文件 来达到简短的命令输入：</p>
+<p>步骤一：<br>终端 cd 进入 .ssh 目录，本人是把 .pem 私钥存放在这个目录的，建议你也存放在这里。<br>如果没有 config 文件 ， 则创建 ， 如果有的话 则 打开 该文件 ， 并输入以下内容：</p>
+<pre><code class="hljs bash">Host ecs    <span class="hljs-comment"># 输入ECS实例的名称 , 你喜欢 取什么你决定</span>
+HostName 192.*.*.*   <span class="hljs-comment"># 输入ECS实例的公网IP地址</span>
+Port 22   <span class="hljs-comment"># 输入端口号，默认为22</span>
+User root   <span class="hljs-comment"># 输入登录账号</span>
+IdentityFile ~/.ssh/ecs.pem <span class="hljs-comment"># 输入.pem私钥文件在本机的地址</span></code></pre>
+
+<p>保存这个文件。</p>
+<p>步骤二：<br>打开本地终端 ， 输入 ssh 连接命令即可， 例如： ssh [ECS 实例的名称，也就是你 config 中的 host 的值]</p>
+<h2 id="远程登录-实例后-，-我们准备安装-docker"><a href="#远程登录-实例后-，-我们准备安装-docker" class="headerlink" title="远程登录 实例后 ， 我们准备安装 docker"></a>远程登录 实例后 ， 我们准备安装 docker</h2><p>关于 docker 的概念 ， 可以自行查阅 ，这里不细说。</p>
+<p>查看当前系统版本：</p>
+<pre><code class="hljs bash">cat /etc/redhat-release</code></pre>
+
+<p>添加新 docker 的 yum 源:</p>
+<pre><code class="hljs bash">yum install -y yum-utils device-mapper-persistent-data lvm2
+yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+yum-config-manager --<span class="hljs-built_in">enable</span> docker-ce-edge
+yum-config-manager --<span class="hljs-built_in">enable</span> docker-ce-test</code></pre>
+
+<p>自定义 docker 配置:</p>
+<p>为了提升 Docker 镜像服务的安装速度，这里自定义 docker 的配置，让其从国内镜像源拉去镜像。</p>
+<pre><code class="hljs bash">mkdir /etc/docker
+vi /etc/docker/daemon.json</code></pre>
+
+<p>然后在 daemon.json 文件中输入如下内容。</p>
+<pre><code class="hljs json">&#123;
+  <span class="hljs-attr">&quot;graph&quot;</span>:<span class="hljs-string">&quot;/home/docker&quot;</span>, <span class="hljs-comment">// docker 的数据存放文件</span>
+  <span class="hljs-attr">&quot;registry-mirrors&quot;</span>: [  
+    <span class="hljs-string">&quot;https://docker.mirrors.ustc.edu.cn&quot;</span>, <span class="hljs-comment">// docker 国内官方镜像</span>
+    <span class="hljs-string">&quot;https://reg-mirror.qiniu.com&quot;</span>, <span class="hljs-comment">// 七牛云</span>
+    <span class="hljs-string">&quot;https://hub-mirror.c.163.com&quot;</span>  <span class="hljs-comment">// 网易云</span>
+    ]
+&#125;</code></pre>
+
+<p>保存后 ， 更新下这个文件(每次修改后都必要更新和重启docker)。</p>
+<pre><code class="hljs bash">systemctl daemon-reload</code></pre>
+
+<p>安装 docker-ce：</p>
+<pre><code class="hljs bash">yum install docker-ce <span class="hljs-comment"># 或者使用 dnf -y  install docker-ce --nobest</span></code></pre>
+
+<p>安装后 ， 如果你不是root用户 ， 那么使用docker都需要 sudo 来使用。<br>如果需要省略 sudo ，需要将用户添加到 docker 组。</p>
+<pre><code class="hljs bash">sudo usermod -aG docker USER_NAME</code></pre>
+
+<p>开机启动 docker 服务：</p>
+<pre><code class="hljs bash">systemctl <span class="hljs-built_in">enable</span> --now docker</code></pre>
+
+<p>启动 docker ：</p>
+<pre><code class="hljs bash">systemctl start docker</code></pre>
+
+<p>查看是否安装成功：</p>
+<pre><code class="hljs bash">docker info</code></pre>
+
+<p>可以看到我们自定义的配置文件生效了。</p>
+<h2 id="docker-安装-gitlab"><a href="#docker-安装-gitlab" class="headerlink" title="docker 安装 gitlab"></a>docker 安装 gitlab</h2><p>查看gitlab镜像：</p>
+<pre><code class="hljs bash">docker search gitlab</code></pre>
+
+<p>安装 gitlab(这里备注下： 官方的这个镜像安装之后docker启动后无法访问，看了日志报错是: Chef encountered an error attempting to load the node data for , 找不到解决办法 ，最后无奈删除这个镜像 ， 使用了 twang2218/gitlab-ce-zh 汉化版镜像)：</p>
+<pre><code class="hljs bahs">docker pull twang2218&#x2F;gitlab-ce-zh</code></pre>
+
+<p>检查是否下载了这个镜像：</p>
+<pre><code class="hljs bash">docker images</code></pre>
+
+<p>docker 运行 gitlab ：</p>
+<pre><code class="hljs bash">docker run --detach \
+  --hostname 127.0.0.1 \
+  --publish 443:443 --publish 80:80 --publish 22:22 \
+  --name gitlab \
+  --restart always \
+  --volume /home/gitlab/config:/etc/gitlab \
+  --volume /home/gitlab/logs:/var/<span class="hljs-built_in">log</span>/gitlab \
+  --volume /home/gitlab/data:/var/opt/gitlab \
+  gitlab/gitlab-ce:latest</code></pre>
+
+<ul>
+<li>–detach：后台运行容器</li>
+<li>–publish：端口映射，容器端口如何映射到宿主机（本文指我们的 Mac 电脑）端口</li>
+<li>–name：指定容器的名称，这里我们指定容器名称为 gitlab</li>
+<li>–restart always：设置当宿主机重启后，容器也会重启</li>
+<li>–volume：这里使用 bind mount 的方式，设置 gitlab 容器的数据保存在目录 /home/gitlab/ 下</li>
+</ul>
+<p>config 文件夹保存 gitlab 配置<br>logs 文件夹保存 gitlab 输出日志<br>data 文件夹保存 gitlab 应用数据</p>
+<p>输入以上命令后 ，返回一串字符串代表 docker 镜像启动成功了。<br>访问你需要在阿里云服务器把对应的安全组端口打开。</p>
+<p>接下来我们来改一下 gitlab 的配置文件， 我们通过 volume 参数， 把 数据都存在目录 home/gitlab处，所以我们进入这个目录， 找到config下的gitlab.rb 文件,然后修改以下字段：</p>
+<pre><code class="hljs bash">external_url <span class="hljs-string">&#x27;http://127.0.0.1&#x27;</span> <span class="hljs-comment"># 不加端口号 默认 80</span></code></pre>
+
+<p>接着再修改一些配置来优化我们的gitlab：</p>
+<pre><code class="hljs bash">unicorn[<span class="hljs-string">&#x27;enable&#x27;</span>] = <span class="hljs-literal">true</span>
+unicorn[<span class="hljs-string">&#x27;worker_timeout&#x27;</span>] = 60
+unicorn[<span class="hljs-string">&#x27;worker_processes&#x27;</span>] = 2
+
+unicorn[<span class="hljs-string">&#x27;worker_memory_limit_min&#x27;</span>] = <span class="hljs-string">&quot;300 * 1 &lt;&lt; 20&quot;</span>
+unicorn[<span class="hljs-string">&#x27;worker_memory_limit_max&#x27;</span>] = <span class="hljs-string">&quot;500 * 1 &lt;&lt; 20&quot;</span>
+
+sidekiq[<span class="hljs-string">&#x27;concurrency&#x27;</span>] = 16
+
+postgresql[<span class="hljs-string">&#x27;shared_buffers&#x27;</span>] = <span class="hljs-string">&quot;256MB&quot;</span>
+postgresql[<span class="hljs-string">&#x27;max_worker_processes&#x27;</span>] = 8</code></pre>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/">服务器</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E9%98%BF%E9%87%8C%E4%BA%91/">阿里云</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/articles/2020/09/01/%E5%85%B3%E4%BA%8E%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83%E7%9A%84%E9%85%8D%E7%BD%AE/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">关于代码规范的配置</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/articles/2020/09/01/Hexo%E5%88%9B%E5%BB%BA%E5%8D%9A%E5%AE%A2%E4%BB%A5%E5%8F%8Agithub%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E6%B5%81%E7%A8%8B/">
+                        <span class="hidden-mobile">Hexo创建博客以及github搭建博客流程</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <!-- <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div> -->
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '#post-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "阿里云服务器安装docker，部署gitlab步骤&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+  
+  
+    <script>
+      !function (e, t, a) {
+        function r() {
+          for (var e = 0; e < s.length; e++) s[e].alpha <= 0 ? (t.body.removeChild(s[e].el), s.splice(e, 1)) : (s[e].y--, s[e].scale += .004, s[e].alpha -= .013, s[e].el.style.cssText = "left:" + s[e].x + "px;top:" + s[e].y + "px;opacity:" + s[e].alpha + ";transform:scale(" + s[e].scale + "," + s[e].scale + ") rotate(45deg);background:" + s[e].color + ";z-index:99999");
+          requestAnimationFrame(r)
+        }
+
+        function n() {
+          var t = "function" == typeof e.onclick && e.onclick;
+          e.onclick = function (e) {
+            t && t(), o(e)
+          }
+        }
+
+        function o(e) {
+          var a = t.createElement("div");
+          a.className = "heart", s.push({
+            el: a,
+            x: e.clientX - 5,
+            y: e.clientY - 5,
+            scale: 1,
+            alpha: 1,
+            color: c()
+          }), t.body.appendChild(a)
+        }
+
+        function i(e) {
+          var a = t.createElement("style");
+          a.type = "text/css";
+          try {
+            a.appendChild(t.createTextNode(e))
+          } catch (t) {
+            a.styleSheet.cssText = e
+          }
+          t.getElementsByTagName("head")[0].appendChild(a)
+        }
+
+        function c() {
+          return "rgb(" + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + ")"
+        }
+
+        var s = [];
+        e.requestAnimationFrame = e.requestAnimationFrame || e.webkitRequestAnimationFrame || e.mozRequestAnimationFrame || e.oRequestAnimationFrame || e.msRequestAnimationFrame || function (e) {
+          setTimeout(e, 1e3 / 60)
+        }, i(".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}"), n(), r()
+      }(window, document);
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

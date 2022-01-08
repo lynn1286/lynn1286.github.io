@@ -1,0 +1,686 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/bitbug_favicon.ico">
+  <link rel="icon" type="image/png" href="/img/bitbug_favicon.ico">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="且视他人之疑目如盏盏鬼火，大胆地去走自己的路。">
+  <meta name="author" content="lynn1286💭">
+  <meta name="keywords" content="前端博客,JavaScript,html5,css3,Jquery,NodeJs,Vue,React">
+  <title>求根到叶子节点数字之和 - lynn1286💭</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_6peoq002giu.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.1.1"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>lynn1286💭</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/image_one.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container page-header text-center fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2020-10-29 17:54" pubdate>
+      2020年10月29日 下午
+    </time>
+  </div>
+
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      821 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      11
+       分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto" id="post">
+            <!-- SEO header -->
+            <h1 style="display: none">求根到叶子节点数字之和</h1>
+            
+            <div class="markdown-body" id="post-body">
+              <h2 id="求根到叶子节点数字之和"><a href="#求根到叶子节点数字之和" class="headerlink" title="求根到叶子节点数字之和"></a>求根到叶子节点数字之和</h2><p>给定一个二叉树，它的每个结点都存放一个  0-9  的数字，每条从根到叶子节点的路径都代表一个数字。</p>
+<p>例如，从根到叶子节点路径 1-&gt;2-&gt;3 代表数字 123。</p>
+<p>计算从根到叶子节点生成的所有数字之和。</p>
+<p>说明:  叶子节点是指没有子节点的节点。</p>
+<p>示例 1：</p>
+<pre><code class="hljs javascript">输入: [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>]
+    <span class="hljs-number">1</span>
+   / \
+  <span class="hljs-number">2</span>   <span class="hljs-number">3</span>
+输出: <span class="hljs-number">25</span>
+解释:
+从根到叶子节点路径 <span class="hljs-number">1</span>-&gt;<span class="hljs-number">2</span> 代表数字 <span class="hljs-number">12.</span>
+从根到叶子节点路径 <span class="hljs-number">1</span>-&gt;<span class="hljs-number">3</span> 代表数字 <span class="hljs-number">13.</span>
+因此，数字总和 = <span class="hljs-number">12</span> + <span class="hljs-number">13</span> = <span class="hljs-number">25.</span>
+</code></pre>
+
+<p>示例 2：</p>
+<pre><code class="hljs javascript">输入: [<span class="hljs-number">4</span>,<span class="hljs-number">9</span>,<span class="hljs-number">0</span>,<span class="hljs-number">5</span>,<span class="hljs-number">1</span>]
+    <span class="hljs-number">4</span>
+   / \
+  <span class="hljs-number">9</span>   <span class="hljs-number">0</span>
+ / \
+<span class="hljs-number">5</span>   <span class="hljs-number">1</span>
+输出: <span class="hljs-number">1026</span>
+解释:
+从根到叶子节点路径 <span class="hljs-number">4</span>-&gt;<span class="hljs-number">9</span>-&gt;<span class="hljs-number">5</span> 代表数字 <span class="hljs-number">495.</span>
+从根到叶子节点路径 <span class="hljs-number">4</span>-&gt;<span class="hljs-number">9</span>-&gt;<span class="hljs-number">1</span> 代表数字 <span class="hljs-number">491.</span>
+从根到叶子节点路径 <span class="hljs-number">4</span>-&gt;<span class="hljs-number">0</span> 代表数字 <span class="hljs-number">40.</span>
+因此，数字总和 = <span class="hljs-number">495</span> + <span class="hljs-number">491</span> + <span class="hljs-number">40</span> = <span class="hljs-number">1026.</span>
+</code></pre>
+
+<details>
+  <summary>
+    <b>答案</b>
+  </summary>
+  <p>
+深度优先搜索解题法：
+
+<p>从根节点开始，遍历每个节点，如果遇到叶子节点，则将叶子节点对应的数字加到数字之和。如果当前节点不是叶子节点，则计算其子节点对应的数字，然后对子节点递归遍历。</p>
+<pre><code class="hljs javascript"><span class="hljs-comment">/**</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@param <span class="hljs-type">&#123;TreeNode&#125;</span> <span class="hljs-variable">root</span></span></span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@return <span class="hljs-type">&#123;number&#125;</span></span></span>
+<span class="hljs-comment"> */</span>
+<span class="hljs-keyword">var</span> sumNumbers = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">root</span>) </span>&#123;
+ <span class="hljs-keyword">const</span> dfs = <span class="hljs-function">(<span class="hljs-params">root, prevSum</span>) =&gt;</span> &#123;
+  <span class="hljs-keyword">if</span> (root === <span class="hljs-literal">null</span>) <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+  <span class="hljs-keyword">let</span> sum = prevSum * <span class="hljs-number">10</span> + root.val; <span class="hljs-comment">// 这里假设父节点 为 0 ， 得到节点上的对应的数字</span>
+  <span class="hljs-keyword">if</span> (root.left === <span class="hljs-literal">null</span> &amp;&amp; root.right === <span class="hljs-literal">null</span>) &#123;
+   <span class="hljs-keyword">return</span> sum;
+  &#125;
+  <span class="hljs-keyword">let</span> res = dfs(root.left, sum) + dfs(root.right, sum);
+  <span class="hljs-keyword">return</span> res;
+ &#125;;
+ <span class="hljs-keyword">return</span> dfs(root, <span class="hljs-number">0</span>);
+&#125;;
+
+<span class="hljs-keyword">let</span> root = &#123;
+ val: <span class="hljs-number">4</span>,
+ left: &#123;
+  val: <span class="hljs-number">9</span>,
+  left: &#123;
+   val: <span class="hljs-number">5</span>,
+   left: <span class="hljs-literal">null</span>,
+   right: <span class="hljs-literal">null</span>,
+  &#125;,
+  right: &#123;
+   val: <span class="hljs-number">1</span>,
+   left: <span class="hljs-literal">null</span>,
+   right: <span class="hljs-literal">null</span>,
+  &#125;,
+ &#125;,
+ right: &#123;
+  val: <span class="hljs-number">0</span>,
+  left: <span class="hljs-literal">null</span>,
+  right: <span class="hljs-literal">null</span>,
+ &#125;,
+&#125;;
+
+<span class="hljs-keyword">const</span> num = sumNumbers(root);</code></pre>
+
+<p>广度优先搜索解题法：</p>
+<p>使用广度优先搜索，需要维护两个队列，分别存储节点和节点对应的数字。</p>
+<p>初始时，将根节点和根节点的值分别加入两个队列。每次从两个队列分别取出一个节点和一个数字，进行如下操作：</p>
+<p>如果当前节点是叶子节点，则将该节点对应的数字加到数字之和；</p>
+<p>如果当前节点不是叶子节点，则获得当前节点的非空子节点，并根据当前节点对应的数字和子节点的值计算子节点对应的数字，然后将子节点和子节点对应的数字分别加入两个队列。</p>
+<p>搜索结束后，即可得到所有叶子节点对应的数字之和。</p>
+<pre><code class="hljs javascript"><span class="hljs-comment">/**</span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@param <span class="hljs-type">&#123;TreeNode&#125;</span> <span class="hljs-variable">root</span></span></span>
+<span class="hljs-comment"> * <span class="hljs-doctag">@return <span class="hljs-type">&#123;number&#125;</span></span></span>
+<span class="hljs-comment"> */</span>
+<span class="hljs-keyword">var</span> sumNumbers = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">root</span>) </span>&#123;
+ <span class="hljs-keyword">if</span> (root === <span class="hljs-literal">null</span>) <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+
+ <span class="hljs-keyword">let</span> sum = <span class="hljs-number">0</span>;
+ <span class="hljs-keyword">const</span> nodeQueue = [];
+ <span class="hljs-keyword">const</span> numQueue = [];
+ nodeQueue.push(root);
+ numQueue.push(root.val);
+
+ <span class="hljs-keyword">while</span> (nodeQueue.length) &#123;
+  <span class="hljs-keyword">const</span> node = nodeQueue.shift(); <span class="hljs-comment">// shift 返回数组中第一个元素</span>
+  <span class="hljs-keyword">const</span> num = numQueue.shift();
+  <span class="hljs-keyword">const</span> left = node.left;
+  <span class="hljs-keyword">const</span> right = node.right;
+  <span class="hljs-keyword">if</span> (left === <span class="hljs-literal">null</span> &amp;&amp; right === <span class="hljs-literal">null</span>) &#123;
+   sum += num;
+  &#125; <span class="hljs-keyword">else</span> &#123;
+   <span class="hljs-keyword">if</span> (left !== <span class="hljs-literal">null</span>) &#123;
+    nodeQueue.push(left);
+    numQueue.push(num * <span class="hljs-number">10</span> + left.val);
+   &#125;
+   <span class="hljs-keyword">if</span> (right !== <span class="hljs-literal">null</span>) &#123;
+    nodeQueue.push(right);
+    numQueue.push(num * <span class="hljs-number">10</span> + right.val);
+   &#125;
+  &#125;
+ &#125;
+ <span class="hljs-keyword">return</span> sum;
+&#125;;
+
+<span class="hljs-keyword">let</span> root = &#123;
+ val: <span class="hljs-number">4</span>,
+ left: &#123;
+  val: <span class="hljs-number">9</span>,
+  left: &#123;
+   val: <span class="hljs-number">5</span>,
+   left: <span class="hljs-literal">null</span>,
+   right: <span class="hljs-literal">null</span>,
+  &#125;,
+  right: &#123;
+   val: <span class="hljs-number">1</span>,
+   left: <span class="hljs-literal">null</span>,
+   right: <span class="hljs-literal">null</span>,
+  &#125;,
+ &#125;,
+ right: &#123;
+  val: <span class="hljs-number">0</span>,
+  left: <span class="hljs-literal">null</span>,
+  right: <span class="hljs-literal">null</span>,
+ &#125;,
+&#125;;
+
+<span class="hljs-keyword">const</span> num = sumNumbers(root);</code></pre>
+
+  </p>
+</details>
+
+<hr>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E7%AE%97%E6%B3%95/">算法</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E6%A0%91/">树</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/articles/2020/11/02/%E4%B8%A4%E4%B8%AA%E6%95%B0%E7%BB%84%E7%9A%84%E4%BA%A4%E9%9B%86/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">两个数组的交集</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/articles/2020/10/28/Git%E4%B9%8B%E5%90%88%E5%B9%B6%E5%88%86%E6%94%AF/">
+                        <span class="hidden-mobile">Git之合并分支</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <!-- <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div> -->
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '#post-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "求根到叶子节点数字之和&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+  
+  
+    <script>
+      !function (e, t, a) {
+        function r() {
+          for (var e = 0; e < s.length; e++) s[e].alpha <= 0 ? (t.body.removeChild(s[e].el), s.splice(e, 1)) : (s[e].y--, s[e].scale += .004, s[e].alpha -= .013, s[e].el.style.cssText = "left:" + s[e].x + "px;top:" + s[e].y + "px;opacity:" + s[e].alpha + ";transform:scale(" + s[e].scale + "," + s[e].scale + ") rotate(45deg);background:" + s[e].color + ";z-index:99999");
+          requestAnimationFrame(r)
+        }
+
+        function n() {
+          var t = "function" == typeof e.onclick && e.onclick;
+          e.onclick = function (e) {
+            t && t(), o(e)
+          }
+        }
+
+        function o(e) {
+          var a = t.createElement("div");
+          a.className = "heart", s.push({
+            el: a,
+            x: e.clientX - 5,
+            y: e.clientY - 5,
+            scale: 1,
+            alpha: 1,
+            color: c()
+          }), t.body.appendChild(a)
+        }
+
+        function i(e) {
+          var a = t.createElement("style");
+          a.type = "text/css";
+          try {
+            a.appendChild(t.createTextNode(e))
+          } catch (t) {
+            a.styleSheet.cssText = e
+          }
+          t.getElementsByTagName("head")[0].appendChild(a)
+        }
+
+        function c() {
+          return "rgb(" + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + ")"
+        }
+
+        var s = [];
+        e.requestAnimationFrame = e.requestAnimationFrame || e.webkitRequestAnimationFrame || e.mozRequestAnimationFrame || e.oRequestAnimationFrame || e.msRequestAnimationFrame || function (e) {
+          setTimeout(e, 1e3 / 60)
+        }, i(".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}"), n(), r()
+      }(window, document);
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

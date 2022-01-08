@@ -1,0 +1,890 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/bitbug_favicon.ico">
+  <link rel="icon" type="image/png" href="/img/bitbug_favicon.ico">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="且视他人之疑目如盏盏鬼火，大胆地去走自己的路。">
+  <meta name="author" content="lynn1286💭">
+  <meta name="keywords" content="前端博客,JavaScript,html5,css3,Jquery,NodeJs,Vue,React">
+  <title>Git学习备忘录 - lynn1286💭</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_6peoq002giu.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.1.1"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>lynn1286💭</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/image_one.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container page-header text-center fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2020-09-01 11:43" pubdate>
+      2020年9月1日 中午
+    </time>
+  </div>
+
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      9.4k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      104
+       分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto" id="post">
+            <!-- SEO header -->
+            <h1 style="display: none">Git学习备忘录</h1>
+            
+            <div class="markdown-body" id="post-body">
+              <h2 id="git-是目前最火的版本控制工具下面我们来学习下如何使用它"><a href="#git-是目前最火的版本控制工具下面我们来学习下如何使用它" class="headerlink" title="git 是目前最火的版本控制工具下面我们来学习下如何使用它"></a>git 是目前最火的版本控制工具下面我们来学习下如何使用它</h2><h3 id="创建新仓库"><a href="#创建新仓库" class="headerlink" title="创建新仓库"></a>创建新仓库</h3><ol>
+<li><p>创建新的文件夹, 在该文件夹下打开终端,执行命令创建新的 git 仓库:</p>
+<pre><code> git init</code></pre>
+<p>   执行命令后,会在当前文件夹下出现一个隐藏的<code>.git</code>文件夹,这个目录是 Git 来跟踪管理版本库的，没事千万不要手动修改这个目录里面的文件，不然改乱了，就把 Git 仓库给破坏了。</p>
+<pre><code> 一般我们在公司除非让你新建一个新的项目，否则这一步我们基本都不用操作。</code></pre>
+</li>
+<li><p>现在我们通过<code>git init</code> 初始化本地的仓库了,接下来我们便来问这个文件夹添加点内容。</p>
+<ul>
+<li><p>新建一个文件，给这个文件简单的写点东西。</p>
+</li>
+<li><p>保存你编写的文件，然后执行命令：</p>
+<pre><code>git add &lt;file&gt;  // file 代表你刚刚创建的文件名称</code></pre>
+</li>
+<li><p>接着执行命令：</p>
+<pre><code>git commit -m &#39;备注信息&#39;</code></pre>
+</li>
+</ul>
+</li>
+</ol>
+<p>接下来我为你一一解释下这些命令的意思是什么：</p>
+<pre><code>git add &lt;文件&gt; // git add 是把你刚刚所编写的内容提交到git 暂存区当中去。
+git commit -m &#39;备注&#39; // 这个命令是把你刚刚做了什么事情备注下，并提交到本地的版本库当中。</code></pre>
+<h4 id="小总结-1"><a href="#小总结-1" class="headerlink" title="小总结 - 1"></a>小总结 - 1</h4><ul>
+<li><code>git init</code> 是初始化仓库，一般用于刚创建项目的时候用 git 来管理版本</li>
+<li><code>git add &lt;file&gt;</code> 是把文件添加到暂存区</li>
+<li><code>git commit -m &#39;备注&#39;</code> 是把你刚刚所做的事情记录一下并把它们提交到本地仓库中。</li>
+</ul>
+<hr>
+<h3 id="git-工作流"><a href="#git-工作流" class="headerlink" title="git 工作流"></a>git 工作流</h3><ol>
+<li><p>接下来我们来讲讲<code>git</code>的工作流，希望能够让大家更清晰的知道<code>git</code>到底是怎么工作的,你的本地仓库是由<code>git</code>维护的 “三棵树” 组成:</p>
+<ul>
+<li>第一个是你的 <strong>工作区</strong> , 也就是你当前所操作的所有本地文件或者文件夹。</li>
+<li>第二个是 <strong>暂存区（index）</strong> ,它像个缓存区域，临时保存你的文件改动 , 记住这句话对你的理解会很有帮助的, git 其实保存的是你的修改而不是文件。</li>
+<li>最后是 <strong>HEAD</strong> , 它指向你最后一次提交的结果。</li>
+</ul>
+</li>
+<li><p>接下来我们来解释下这 <strong>三棵树</strong> 到底指的是什么:</p>
+<ul>
+<li>“第一颗树”:<br>  工作区： 这个应该好理解吧，说白了就是你的项目，这个存放项目的整个文件夹就是你工作的地方，这整个文件夹就被称作为<code>工作区</code></li>
+<li>“第二颗树”:<br>  暂存区： 嗯~ o(<em>￣ ▽ ￣</em>)o ，让我想想这个该怎么来跟你解释呢？ <code>.git</code>文件夹上面我们讲过对吧，这个 <code>.git</code> 文件夹其实就是我们的本地版本库，它里面存放了很多的东西，其中有一个最最重要的就是成为 <code>stage</code>的暂存区，再有一个就是分支和指针 HEAD ，这个我们稍后再说。 这个暂存区你可以理解为存放的都是所有准备提交的文件，那这些文件是从哪里来的呢？其实就是通过 <code>git add &lt;file&gt;</code> 添加进去的。</li>
+<li>“第三颗树”:<br>  HEAD： 这个 HEAD 我们可以简单粗暴的理解为当前版本，我们通过<code>git add &lt;file&gt;</code>把更改过的文件提交到了暂存区，然后我们接着执行命令<code>git commit -m &#39;备注&#39;</code>把缓存区的代码提交到当前分支，如果我们没有创建分支默认就是 master，而这个 HEAD 指向的就是我们这个分支的。</li>
+</ul>
+</li>
+</ol>
+<h4 id="小总结-2"><a href="#小总结-2" class="headerlink" title="小总结 - 2"></a>小总结 - 2</h4><ul>
+<li>git 跟踪的并不是文件，而是修改。</li>
+<li>git 有三颗树， 工作区 -&gt; 暂存区 -&gt; 本地仓库</li>
+<li>可以把他们想象成两大部分， 一个是工作区域，一个是版本库区域，我们在工作区域做的工作通过<code>git add</code> 提交到版本库中的缓存区(index) ， 你可以把所有的修改都先提交到缓存区然后再通过<code>git commit</code> 一次性提交到分支，而 HEAD 是一个指针，它指向的是你当前的版本库</li>
+</ul>
+<hr>
+<h3 id="git-管理修改"><a href="#git-管理修改" class="headerlink" title="git 管理修改"></a>git 管理修改</h3><p>有添加就有修改，接下来我们来看看如何修改版本库中的文件。</p>
+<ol>
+<li>当我们把第一次修改的文件使用命令<code>git add</code>提交到暂存区后，我们再此修改该文件，然后保存，之后使用命令<code>git commit</code>把文件提交到本地仓库，这个时候你可以使用<code>git diff HEAD -- &lt;file&gt;</code>查看文件，你会发现第一次提交的内容是到了仓库的，但是第二次提交却没有，这是为什么呢？ 其实很简单，因为你第一次提交的时候你使用了<code>git add</code>，但是第二次你并没有使用这个命令，所以它并没有被提交到暂存区，所以啊，这个时候你想要把第二次提交也提交到仓库中就必须把第二次的修改也提交到暂存区，然后再执行<code>git commit</code> ,这样就可以修改文件了。</li>
+<li>永远不要忘了，git 跟踪的是你对文件的修改而不是文件，所以，你可以每次修改后都提交到缓存区，然后一次性把所有修改都提交到仓库中。</li>
+</ol>
+<h4 id="小总结-3"><a href="#小总结-3" class="headerlink" title="小总结 - 3"></a>小总结 - 3</h4><ul>
+<li>每次修改，如果不用<code>git add</code>提交到暂存区，那么<code>git commit</code>的时候是不会包含进去的哦。</li>
+<li>git 跟踪的是你的修改.</li>
+</ul>
+<hr>
+<h3 id="git-撤销修改"><a href="#git-撤销修改" class="headerlink" title="git 撤销修改"></a>git 撤销修改</h3><p>我们在工作中难免会出现错误，当我们出现错误的时候，如果及时发现可以立马在工作区中修改删除掉它，但是如果已经提交到了暂存区或者仓库中，怎么办呢？</p>
+<h4 id="丢弃工作区的修改"><a href="#丢弃工作区的修改" class="headerlink" title="丢弃工作区的修改"></a>丢弃工作区的修改</h4><ul>
+<li><p><code>git checkout -- &lt;file&gt;</code> 可以帮助你在工作区的修改全部撤销掉，不过这里有两种情况哦： - 1. 一种是文件自然修改后<strong>还没有被放到缓存区</strong>中，那么，撤销修改就回到了和<strong>版本库</strong>一摸一样的状态 - 2. 一种是文件<strong>已经被提交到了缓存区</strong>中，又作了修改，那么，撤销修改就回到了添加到<strong>缓存区</strong>后的状态，也就是你已经提交的内容还会回来，但是没有提交的内容就不见了哦。  </p>
+<blockquote>
+<p>总之就是让这个文件回到<code>git add</code> 或者 <code>git commit</code>时的状态。<br>注意上面的命令 – 很重要哦， 如果没有了就是切换分支了。</p>
+</blockquote>
+</li>
+</ul>
+<h4 id="丢弃暂存区的修改"><a href="#丢弃暂存区的修改" class="headerlink" title="丢弃暂存区的修改"></a>丢弃暂存区的修改</h4><ul>
+<li>假如你把这些错误的内容提交到了暂存区中，也就是使用了<code>git add</code>后 ， 你可以使用命令 <code>git reset HEAD &lt;file&gt;</code> 把暂存区中的修改撤销掉重新回到工作区中， <code>git reset</code>命令既可以回退版本，也可以把暂存区的修改回退到工作区中。 HEAD 表示最新的版本。</li>
+</ul>
+<h4 id="丢弃仓库中的修改（版本回退与重返）"><a href="#丢弃仓库中的修改（版本回退与重返）" class="headerlink" title="丢弃仓库中的修改（版本回退与重返）"></a>丢弃仓库中的修改（版本回退与重返）</h4><ul>
+<li><p>这个其实就是版本回退的问题了，因为你已经把文件提交到了仓库中；使用命令<code>git reset</code>命令，是不是很熟悉，上面已经介绍过这个命令了，接下来我们来看看如何实现版本回退。</p>
+<ul>
+<li>想要实现版本回退你必须要知道你提交的<code>commit id</code> ，这个 ID 是你每次提交版本库的时候，git 自动生成的，那么如何获取这个 ID 号呢？</li>
+<li>使用命令<code>git log</code>可以查看提交的版本 ID 号，你会发现控制台输出了很多的东西，眼花缭乱，你可以给这个命令加个参数<code>git log --pretty=oneline</code>参数，这样控制台就会清爽很多的输出<code>commit id</code>了。</li>
+<li>获取到了<code>commit id</code>之后记住它或者直接复制，然后控制台输入命令<code>git reset --hard &lt;commit id&gt;</code> ， 这样就会回到这个<code>commit id</code>的版本内容了; 如果你想要回到上一个版本或者上上个版本，可以不用找 ID , 直接控制台输入 <code>git reset --hard HEAD^</code> ; HEAD 我们说过，它指向的是我们当前的版本，而 ^ 符号是指上一个版本， ^^ 是上上个版本， 如果要回到 100 个版本你可以输入 100 个^ ； 哈哈，开玩笑， git 贴心的提供了 <code>git reset --hard HEAD~100</code></li>
+<li>如果你回退之后后悔了怎么办？？？ 这个时候你在打印 log 日志是找不到你回退之前的那个版本号了，我的天，是不是完蛋了，NO!!! git 给我们提供了后悔药，你就算是第二天醒来后悔了都没得问题， 输入命令<code>git reflog</code>命令，你就会发现，你回退之前的 ID 号也在这里出现了，既然找到了 ID 号，那相信小伙伴们也知道该如何做了啊。</li>
+</ul>
+</li>
+</ul>
+<h4 id="小总结-4"><a href="#小总结-4" class="headerlink" title="小总结 - 4"></a>小总结 - 4</h4><ul>
+<li>HEAD 指向的版本就是当前版本，因此，git 允许我们在版本的历史之间穿梭，使用命令 <code>git reset --hard &lt;commit id&gt;</code></li>
+<li>回退前，使用<code>git log</code> 可以查看提交的历史，以便我们确定要回退到哪个版本中。</li>
+<li>重返未来， 使用 <code>git reflog</code> 查看命令历史，这个命令记录了我们每一次的命令。</li>
+</ul>
+<hr>
+<h3 id="git-删除文件"><a href="#git-删除文件" class="headerlink" title="git 删除文件"></a>git 删除文件</h3><ul>
+<li>删除其实也可以理解为是对文件的修改，你可以直接在文件管理器中删除文件或者使用命令<code>rm</code>删除。</li>
+<li>你只要一删除文件，git 就知道。因此工作区和版本库就不一致了，所以你有两个选择，第一就是你确实要删除该文件，并且执行命令 <code>git commit</code>； 第二个就是删除文件了，那你可以使用命令<code>git checkout -- &lt;file&gt;</code>, 或者直接区垃圾回收站把文件给恢复过来</li>
+<li>这里给大家提醒个事情，我的建议是如果大家误删除了文件，这个文件有新添加的内容在里面并没有提交到版本库中，那么我建议还是直接去系统的垃圾箱里面恢复文件，这样那些没有提交到版本库中的内容是还存在的，但是如果你是通过返回之前的版本库或者 vscode 的撤销操作来恢复文件的话，哪些没有被添加到版本库中的内容是不会存在在文件中哦!!!</li>
+</ul>
+<h4 id="小总结-5"><a href="#小总结-5" class="headerlink" title="小总结 - 5"></a>小总结 - 5</h4><ul>
+<li>从来没有被添加到版本库中就被删除的文件是无法恢复的哦!!!</li>
+<li>如果一个文件已经被提交到版本库中，那么你就永远不用担心被误删，但是要小心的是，你恢复的文件是最新被提交到版本库中的，你会丢失掉最后一次修改后的所有内容。</li>
+</ul>
+<hr>
+<h3 id="git-添加远程仓库"><a href="#git-添加远程仓库" class="headerlink" title="git 添加远程仓库"></a>git 添加远程仓库</h3><p>添加到远程仓库有两种情况，一种是你还没有创建本地仓库，一种是你创建了本地仓库。</p>
+<h4 id="还没有创建本地仓库"><a href="#还没有创建本地仓库" class="headerlink" title="还没有创建本地仓库"></a>还没有创建本地仓库</h4><p>如果你还没有创建本地仓库，那么你可以先去码云或者 GitHub 上面先创建一个远端仓库，然后把地址复制下来，使用命令<code>git clone &lt;远程仓库地址&gt;</code>,把项目给克隆下来，然后进行文件的修改，并提交到版本库当中去，最后使用命令<code>git push -u origin master</code>就可以了，如果是第一次 clone 项目，会让你输入账号密码，这个账号密码就是你登录仓库的账号和密码。</p>
+<h4 id="创建了本地仓库"><a href="#创建了本地仓库" class="headerlink" title="创建了本地仓库"></a>创建了本地仓库</h4><p>如果你创建了本地仓库，那么也是把地址复制下来，然后在你现有的本地仓库中打开终端输入命令<code>git git remote add origin &lt;远程仓库地址&gt;</code>,关联了远程仓库之后，要把本地仓库的文件提交到远程仓库中去，需要使用命令<code>git push -u origin master</code> 或者 <code>git push</code>之后再次输入命令<code>git push --set-upstream origin master</code>, 相信大家会疑惑 –set-upstream 是什么意思? 其实是因为你在执行命令 <code>git push</code> 的时候 git 不知道你要提交到哪里去，它会报一个错误，告诉你当前分支没有对应的上游分支，需要执行<code>git push --set-upstream origin master</code>。</p>
+<h4 id="关联远程仓库后的注意事项"><a href="#关联远程仓库后的注意事项" class="headerlink" title="关联远程仓库后的注意事项"></a>关联远程仓库后的注意事项</h4><p>这种关联远程仓库的方法中还会出现一个问题，那就是 假如你创建的仓库并不是一无所有而是会有几个文件，比如 README.MD ， 那么你在提交本地仓库的代码的时候会报错，告诉你推送失败了，这是因为你远端的仓库跟本地的仓库不一致导致的，你需要跟远程的仓库保持一致，所以你要先拉一下远程的仓库到本地，使用命令<code>git pull --rebase origin master</code> , 这条指令的意思是把远程库中的更新合并到本地库中，–-rebase 的作用是取消掉本地库中刚刚的 commit，并把他们接到更新后的版本库之中,执行完毕之后就可以正常的 push 代码到远程仓库中了。</p>
+<hr>
+<h3 id="git-分支管理"><a href="#git-分支管理" class="headerlink" title="git 分支管理"></a>git 分支管理</h3><h4 id="1-分支的创建与合并"><a href="#1-分支的创建与合并" class="headerlink" title="1. 分支的创建与合并"></a>1. 分支的创建与合并</h4><ul>
+<li>学习到了这里，相信大家都知道，git 在我们每一次提交的时候都会把它们串成一条线，这条线就是一个分支，而 HEAD 指向的是分支，分支则是指向了提交。<ul>
+<li>刚开始，我们只有一条默认分支 master ，我们每一次的提交，master 都会往前进一步，这样随着你不断的提交 master 这条线会越来越长。</li>
+<li>当我们创建一个新的分支的时候，例如名字叫做 dev，git 会新建一个指针叫做 dev，并且指向了 master 相同的提交，然后再把 HEAD 指向 dev，这样就表示当前分支在 dev 上面。</li>
+<li>所以接下来你做的所有文件修改都将是在 dev 上进行的，dev 分支在你每次提交的时候都往前进一步，而 master 指针则一直不变停留在原地，最后 dev 这条线就会把 master 线抛在身后。</li>
+<li>假如我们在 dev 分支上的工作结束了，你就可以把 dev 合并到 master 分支上面，所以这个时候你就需要把 HEAD 指针指向 master,然后直接让 master 指向 dev 就行了。</li>
+</ul>
+</li>
+</ul>
+<h5 id="1-1-分支的创建"><a href="#1-1-分支的创建" class="headerlink" title="1.1 分支的创建"></a>1.1 分支的创建</h5><ul>
+<li>我们了解了分支的创建和合并，那么我们是如何使用命令来创建我们的新分支呢？使用命令<code>git chekcout -b &lt;branch&gt;</code>创建分支。</li>
+<li>然后使用命令<code>git branch</code> 即可查看当前所在的本地分支是哪个了。</li>
+</ul>
+<h5 id="1-2-分支的合并"><a href="#1-2-分支的合并" class="headerlink" title="1.2 分支的合并"></a>1.2 分支的合并</h5><ul>
+<li>接下来我们要合并分支，首先我们要切换到我们想要合并的分支上，比如 master 想要合并 dev ，那么就要先切换到 master 分支上，然后使用命令<code>git merge dev</code>；</li>
+<li><code>git merge &lt;branch&gt;</code>命令用于合并指定分支到当前分支。</li>
+<li>当你切换到 master 分支上的时候，由于 master 分支是落后于 dev 的，所以切换的时候你会发现在 dev 上的内容全都不见了，不过别慌，等你执行完 merge 命令后，你就能够看到 dev 上的内容也出现到了 master 分支了。</li>
+<li>在这合并的时候有可能会出现冲突，假如出现冲突，你就要先解决完冲突之后再一次提交到版本库中去。</li>
+</ul>
+<h5 id="1-3-分支的创建（switch）"><a href="#1-3-分支的创建（switch）" class="headerlink" title="1.3 分支的创建（switch）"></a>1.3 分支的创建（switch）</h5><ul>
+<li>最新版本的 git 提供了另一种切换分支的命令： <code>git switch</code></li>
+<li>切换并创建到新的 dev 分支，可以使用命令：<code>git switch -c dev</code></li>
+<li>直接切换现有分支可以使用： <code>git switch master</code></li>
+</ul>
+<h5 id="1-4-远程仓库的分支的创建"><a href="#1-4-远程仓库的分支的创建" class="headerlink" title="1.4 远程仓库的分支的创建"></a>1.4 远程仓库的分支的创建</h5><ul>
+<li>创建远程仓库的分支,首先是在本地创建好分支，然后使用命令:<code>git push --set-upstream origin dev</code> , 远程分支的名字建议和本地的分支名字保持一致。</li>
+<li>查看远程分支： <code>git branch -a</code></li>
+<li>有时候我们会出现这种情况，master 分支是线上的代码，但是我们有个版本还没上的代码在 dev 分支上，所以我们需要拉取的代码应该是 dev 上的，所以我们一般在克隆下来项目的时候，我们默认是在主分支上的，但是这个时候如果我们使用:<code>git checkout -b dev</code>你会发现你的代码其实是 master 上拉取出来的，意思就是你本地的 dev 分支的代码是 master 上的，跟远程的 dev 是不一致的，不过这个不是说一定是 master 上的，假如你是在 test 分支上拉出来的，那么 dev 就是 test 上的代码，反正就是你在哪个分支上切换并创建分支，那么切出来的分支代码就是和当前分支是也一致的，那怎么办呢？这里有两种情况:<ul>
+<li><ol>
+<li>第一种方式是:在你切分支的时候，如果是直接从 master 拉出来的，那么你就必须要先 pull 一下远程的 dev 代码到本地，如果你只是输入命令<code>git pull</code> 会提示没有当前分支没有跟踪信息，要你指定合并哪个分支，你可以按照提示输入命令: <code>git pull &lt;remote&gt; &lt;branch&gt;</code> 或者 <code>git branch --set-upstream-to=origin/&lt;branch&gt; dev</code>, 然后再次执行下<code>git pull</code>即可</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>第二种方式是：直接在创建切换分支的时候拉取远程仓库的代码到本地，使用命令: <code>git checkout -b dev origin/dev</code> , 这样就剩下了步骤啦。</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<h5 id="1-5-远程仓库的分支的合并"><a href="#1-5-远程仓库的分支的合并" class="headerlink" title="1.5 远程仓库的分支的合并"></a>1.5 远程仓库的分支的合并</h5><ul>
+<li>这个就没什么好说的拉，直接在本地合并分支之后 push 到远程仓库就好了。</li>
+<li>当然，这里还是要提下，你在 push 的时候，一定要保证你的代码是最新的，也就是你每次 push 前最好都 pull 一下远程的代码，这是一个好的习惯。</li>
+<li>这里说下另外一个命令，强制推送: <code>git push -f origin &lt;branch&gt;</code>， 这种方法慎用，很暴力，不推荐。这个操作一般都是本地代码回退版本后，常规的 push 用不了了，才会使用到，为什么用不了？？？ 因为本地仓库已经落后远程仓库了啊，所以要强制推送了。</li>
+</ul>
+<h5 id="1-6-远程仓库的回退方法"><a href="#1-6-远程仓库的回退方法" class="headerlink" title="1.6 远程仓库的回退方法"></a>1.6 远程仓库的回退方法</h5><p>在话题开始之前，我们先来聊聊版本回退的流程:</p>
+<ol>
+<li><p>本地版本库回退：</p>
+<ul>
+<li>输入命令<code>git log</code>或者<code>git reflog</code>找到 commit_id</li>
+<li>输入命令<code>git reset --hard &lt;commit_id&gt;</code></li>
+</ul>
+</li>
+<li><p>自己的远程分支版本回退:</p>
+<ul>
+<li>输入命令<code>git log</code>或者<code>git reflog</code>找到 commit_id</li>
+<li>输入命令<code>git reset --hard &lt;commit_id&gt;</code></li>
+<li>输入命令<code>git push -f origin &lt;branch&gt;</code></li>
+</ul>
+</li>
+</ol>
+<h5 id="1-7-远程仓库的公共分支版本回退方法"><a href="#1-7-远程仓库的公共分支版本回退方法" class="headerlink" title="1.7 远程仓库的公共分支版本回退方法"></a>1.7 远程仓库的公共分支版本回退方法</h5><p>上面的两种方式都和自己相关，一个人爱咋咋地，没得问题，但是如果你往公共分支推送了错误代码，那怎么办啊？？？</p>
+<p>什么，有什么不一样？？？</p>
+<p>不一样多了，最显而易见的一个问题也是最重要的一个问题就是，别人的代码也在那个分支上，你版本一回退别人的代码不就被你搞丢了吗？</p>
+<h6 id="1-7-1-远程仓库的公共分支版本回退方法之-reset"><a href="#1-7-1-远程仓库的公共分支版本回退方法之-reset" class="headerlink" title="1.7.1 远程仓库的公共分支版本回退方法之 reset"></a>1.7.1 远程仓库的公共分支版本回退方法之 <strong>reset</strong></h6><ul>
+<li><ol>
+<li>假如现在 master 上有这样一条线， A1 - A2 - B1 ， A 和 B 代表两个人， 对应着这个提交，并且所有人的本地分支都已经更新到了最新的版本，和远程分支是一致的。</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>这个时候你发现了 A2 上面有错误，你使用 reset 回滚了当前分支到 A1 ,这样一来，B1 的提交也不见了， 这个时候其他同事的本地仓库代码就比远程仓库的分支超前了两次提交，因为远程的分支回退了。</li>
+</ol>
+</li>
+<li><ol start="3">
+<li><p>这个时候如果你告诉你的同事，你刚刚回退了远程仓库的版本，B 同事的代码不见了，所以 B 同事应该要找回 B1 的那次提交并合并回 master 去， 所以他应该要找到他 B1 的那次提交的 commit_id，然后回退到 B1 版本提交，并且重新创建一个分支，具体步骤如下:</p>
+<pre><code> git checkout B同事自己的分支   // 所以说，在开发中拥有自己的分支是多么重要的一件事情
+ git reflog   // 查看当前的commit_id,也就是已经被回退的A1的commit_id
+ git reset --hard B1 // 自己的分支上先回退到被覆盖的提交B1上
+ git checkout -b 存放B1被覆盖的代码 // 然后切换创建一个分支用来存放被覆盖的B1代码
+ git checkout B同事自己的分支        //然后再切换回自己的分支上
+ git reset --hard &lt;commit_id&gt;       //这个commit_id 就是第二步获取到的ID，也就是当前代码的最前端
+
+ /*
+     通过上面的操作，B1的提交找回来了，这时候B同事就要使自己的master分支跟远程master分支保持一致， 使用命令 git reset --hard origin/master
+
+     这样B同事的master分支就真正的回滚了。
+
+     接着B同事再把丢失的B1操作再次合并到master： git merge 存放B1被覆盖的代码
+
+     然后B同事再push上去，就可以了。
+
+     但是其他的同事没有代码丢失则可以直接使用命令: git reset --hard origin/master , 但是假如有一个同事直接使用命令 : git push , 那么版本回退就回到了最初的状态 A1 - A2 - B1。 这就是分布式，每个人都有副本。
+ */</code></pre>
+</li>
+</ol>
+</li>
+</ul>
+<h6 id="1-7-2-远程仓库的公共分支版本回退方法之-revert"><a href="#1-7-2-远程仓库的公共分支版本回退方法之-revert" class="headerlink" title="1.7.2 远程仓库的公共分支版本回退方法之 revert"></a>1.7.2 远程仓库的公共分支版本回退方法之 <strong>revert</strong></h6><p>使用 git reset 回退公共远程分支的版本后，需要其他所有人手动用远程 master 分支覆盖本地 master 分支，显然，这不是优雅的回退方法，下面我们使用另个一个命令来回退版本：</p>
+<pre><code>      git revert HEAD                     //撤销最近一次提交
+      git revert HEAD~1                   //撤销上上次的提交，注意：数字从0开始
+      git revert 0ffaacc                  //撤销0ffaacc这次提交</code></pre>
+<p>git revert 命令意思是撤销某次提交。它会产生一个新的提交，虽然代码回退了，但是版本依然是向前的，所以，当你用 revert 回退之后，所有人 pull 之后，他们的代码也自动的回退了。</p>
+<p>但是，要注意以下几点：</p>
+<ul>
+<li>revert 是撤销一次提交，所以后面的 commit id 是你需要回滚到的版本的前一次提交</li>
+<li>使用 revert HEAD 是撤销最近的一次提交，如果你最近一次提交是用 revert 命令产生的，那么你再执行一次，就相当于撤销了上次的撤销操作，换句话说，你连续执行两次 revert HEAD 命令，就跟没执行是一样的</li>
+<li>用 revert HEAD~1 表示撤销最近 2 次提交，这个数字是从 0 开始的，如果你之前撤销过产生了 commi id，那么也会计算在内的。</li>
+<li>如果使用 revert 撤销的不是最近一次提交，那么一定会有代码冲突，需要你合并代码，合并代码只需要把当前的代码全部去掉，保留之前版本的代码就可以了.</li>
+<li>git revert 命令的好处就是不会丢掉别人的提交，即使你撤销后覆盖了别人的提交，他更新代码后，可以在本地用 reset 向前回滚，找到自己的代码，然后拉一下分支，再回来合并上去就可以找回被你覆盖的提交了。</li>
+<li>revert 合并代码，解决冲突: 使用 revert 命令，如果不是撤销的最近一次提交，那么一定会有冲突</li>
+<li>解决冲突很简单，因为我们只想回到某次提交，因此需要把当前最新的代码去掉即可，也就是 HEAD 标记的代码</li>
+</ul>
+<h6 id="1-7-3-远程仓库的公共分支版本回退方法之-简单粗暴的方法"><a href="#1-7-3-远程仓库的公共分支版本回退方法之-简单粗暴的方法" class="headerlink" title="1.7.3 远程仓库的公共分支版本回退方法之 简单粗暴的方法"></a>1.7.3 远程仓库的公共分支版本回退方法之 <strong>简单粗暴的方法</strong></h6><p>如果你们开发中，忽然发现前面很远的地方有一次错误的合并代码，把本来下一次才能发的功能的代码合并到了这一次来了，这个时候全体成员都觉得直接回滚比较快，因为他们都有备份，覆盖了无所谓，这个时候用 reset 的话对队友的要求比较高，用 revert 的话呢要大面积的解决冲突，也很麻烦呀，怎么办呢？</p>
+<p>这个时候，可以使用简单粗暴的办法，直接从那个错误的提交的前一次拉取一份代码放到其他目录，然后将 master 代码全部删除，把那份新代码方进去，然后提交，果然简单粗暴啊，虽然这种方法不入流，但是，实践中发现很好使啊，所以，实践是检验真理的唯一标准。遇到问题还是要灵活应对。</p>
+<p>这里丢两个链接给大家阅读，有兴趣的可以去参考阅读下这个章节的原文:</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/fuchaosz/article/details/52170105">梧桐那时雨</a></li>
+</ul>
+<p>还有个讲解 reset、revert 的文章:</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/yxlshk/article/details/79944535">游笑天涯</a></li>
+</ul>
+<h4 id="2-解决冲突"><a href="#2-解决冲突" class="headerlink" title="2. 解决冲突"></a>2. 解决冲突</h4><p>当我们在 master 上修改了 A 文件，然后又在 dev 上修改了 A 文件，然后都提交到了版本库当中，这样冲突就产生了，这时候你在 master 执行命令: <code>git merge dev</code> , 使用<code>git status</code>就能够查看到冲突的文件，这种情况我们就需要手动来解决这些冲突再提交了。</p>
+<ul>
+<li>用<code>git log --graph</code>命令可以看到分支合并图。</li>
+</ul>
+<h4 id="3-分支管理策略"><a href="#3-分支管理策略" class="headerlink" title="3. 分支管理策略"></a>3. 分支管理策略</h4><ul>
+<li>合并分支时，加上<code>--no-ff</code> 参数就可以用普通模式合并，合并后的历史有分支，能看出来曾经做过合并，而 <code>fast forward</code> 合并就看不出来曾经做过合并。</li>
+<li>例如: <code>git merge --no-ff -m &quot;merge with no-ff&quot; dev</code></li>
+</ul>
+<h4 id="4-BUG-分支"><a href="#4-BUG-分支" class="headerlink" title="4. BUG 分支"></a>4. BUG 分支</h4><p>在实际开发中，BUG 紧急修复是很正常的一个现象，但是当前我正在 dev 分支上进行开发，并且代码还不是完善的，没有办法提交，这个时候怎么办呢？</p>
+<ul>
+<li>可以是用<code>git stash</code> 把工作现场给”储藏”起来，等以后恢复现场后继续工作。</li>
+<li>在使用 stash 命令之后，你就可以安心的去创建新的分支来修复 bug。</li>
+<li>修复完成之后我们再切换到 dev 分支，使用<code>git stash list</code>命令查看可以看到我刚刚”储藏”起来的工作现场。</li>
+<li>现在只需要恢复我的工作现场就可以了，这里有两个办法:<ul>
+<li>一是用 git stash apply 恢复，但是恢复后，stash 内容并不删除，你需要用 git stash drop 来删除；</li>
+<li>另一种方式是用 git stash pop，恢复的同时把 stash 内容也删了(推荐使用)</li>
+</ul>
+</li>
+<li>我们现在来想个问题，我们现在当前的分支是从 master 上拉取出来的，这就意味这 master 上 bug 在当前分支上也是存在的，但是我们刚刚只是修复了 master 上的，而当前分支上的 bug 是没有修复的，现在该怎么办呢？ 有两种办法：<ul>
+<li><ol>
+<li>重复做刚刚我们在 master 上修复 bug 问题。</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>使用命令 : <code>git cherry-pick &lt;commit_id&gt;</code> 来复制一个特定的提交到当前的分支上，至于怎么找到哪个 commit_id 不用说了吧。</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>这个方法是不是很棒， 有了这个命令，我们其实可以在 dev 上修复，然后在 master 上复制特定的提交，不过仍然需要<code>git stash</code>命令保存现场，才能从 dev 分支切换到 master 分支。</li>
+</ul>
+<h4 id="5-删除分支"><a href="#5-删除分支" class="headerlink" title="5. 删除分支"></a>5. 删除分支</h4><ul>
+<li><p>我们在开发中经常都需要自己独立开一个分支来写我们的功能，写完之后合并到主分支上去，或者修复 bug 的时候单独开 bugfix 来修复 bug，但是用完之后我们就需要把这个分支给删掉，使用命令<code>git branch -d &lt;branch&gt;</code> 删除分支 或者 强制删除分支 <code>git branch -D &lt;branch&gt;</code> ,强制删除一般都用在分支没有被合并过的时候</p>
+</li>
+<li><p>删除远程分支的命令则是: git push origin –delete &lt;branch&gt;</p>
+</li>
+</ul>
+<h4 id="6-多人协作"><a href="#6-多人协作" class="headerlink" title="6. 多人协作"></a>6. 多人协作</h4><p>多人协作的工作模式通常是这样：</p>
+<ul>
+<li><ol>
+<li>首先，可以试图用 git push origin &lt;branch-name&gt;推送自己的修改；</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>如果推送失败，则因为远程分支比你的本地更新，需要先用 git pull 试图合并;</li>
+</ol>
+</li>
+<li><ol start="3">
+<li>如果合并有冲突，则解决冲突，并在本地提交；</li>
+</ol>
+</li>
+<li><ol start="4">
+<li>没有冲突或者解决掉冲突后，再用 git push origin &lt;branch-name&gt;推送就能成功！</li>
+</ol>
+</li>
+</ul>
+<p>如果 <code>git pull</code> 提示 <code>no tracking information</code>，则说明本地分支和远程分支的链接关系没有创建，用命令 <code>git branch --set-upstream-to &lt;branch-name&gt; origin/&lt;branch-name&gt;</code>。</p>
+<p>这就是多人协作的工作模式，一旦熟悉了，就非常简单。</p>
+<p>当你从远程仓库克隆时，实际上 Git 自动把本地的 master 分支和远程的 master 分支对应起来了，并且，远程仓库的默认名称是 origin。</p>
+<p>要查看远程库的信息，用<code>git remote</code> 或者用<code>git remote -v</code>显示更详细的信息</p>
+<p><code>git remote -v</code>命令输出显示了可以抓取和推送的 origin 的地址。如果没有推送权限，就看不到 push 的地址。</p>
+<p><code>git push origin &lt;branch&gt;</code> 推送到远程仓库的分支</p>
+<p><code>git checkout -b dev origin/dev</code> 创建远程 origin 的 dev 分支到本地</p>
+<h4 id="7-Rebase"><a href="#7-Rebase" class="headerlink" title="7. Rebase"></a>7. Rebase</h4><p>提交历史分叉了,rebase 就派上了用场。我们输入命令<code>git rebase</code>：</p>
+<ul>
+<li>rebase 操作的特点就是把分叉的提交历史“整理”成一条直线，看上去更直观</li>
+<li>rebase 的缺点是本地的分叉提交已经被修改过了。</li>
+<li>rebase 的目的是使得我们在查看历史提交的变化时更容易，因为分叉的提交需要三方对比。</li>
+</ul>
+<hr>
+<h3 id="标签管理"><a href="#标签管理" class="headerlink" title="标签管理"></a>标签管理</h3><p>发布一个版本时，我们通常先在版本库中打一个标签（tag），这样，就唯一确定了打标签时刻的版本。将来无论什么时候，取某个标签的版本，就是把那个打标签的时刻的历史版本取出来。所以，标签也是版本库的一个快照。</p>
+<p>Git 的标签虽然是版本库的快照，但其实它就是指向某个 commit 的指针（跟分支很像对不对？但是分支可以移动，标签不能移动），所以，创建和删除标签都是瞬间完成的。</p>
+<p>Git 有 commit，为什么还要引入 tag？</p>
+<p>因为<code>git log</code>打印出来的日志太过于凌乱不太好找，如果有标签的话，我们就可以根据标签来找到对应的 commit_id，简单点理解就是，tag 就是一个让人容易记住的有意义的名字，它跟某个 commit 绑在一起。</p>
+<h4 id="创建标签"><a href="#创建标签" class="headerlink" title="创建标签"></a>创建标签</h4><p>在 Git 中打标签非常简单，首先，切换到需要打标签的分支上，然后，敲命令<code>git tag &lt;name&gt;</code>就可以打一个新标签,可以用命令<code>git tag</code>查看所有标签。</p>
+<p>默认标签是打在最新提交的 commit 上的。有时候，如果忘了打标签，比如，现在已经是周五了，但应该在周一打的标签没有打，怎么办？</p>
+<p>方法是找到历史提交的 commit id，然后打上就可以了，例如:<code>git tag v0.9 &lt;commit_id&gt;</code></p>
+<p>注意，标签不是按时间顺序列出，而是按字母排序的。可以用<code>git show &lt;tagname&gt;</code>查看标签信息。</p>
+<p>创建带有说明的标签，用-a 指定标签名，-m 指定说明文字：<code>git tag -a &lt;标签名&gt; -m &quot;备注信息&quot; &lt;commit_id&gt;</code>,随后用命令<code>git show &lt;tagname&gt;</code>可以看到说明文字。</p>
+<p>注意：标签总是和某个 commit 挂钩。如果这个 commit 既出现在 master 分支，又出现在 dev 分支，那么在这两个分支上都可以看到这个标签。</p>
+<h4 id="操作标签"><a href="#操作标签" class="headerlink" title="操作标签"></a>操作标签</h4><p>如果标签打错了，也可以删除: <code>git tag -d &lt;标签名&gt;</code>，因为创建的标签都只存储在本地，不会自动推送到远程。所以，打错的标签可以在本地安全删除。</p>
+<p>如果要推送某个标签到远程，使用命令<code>git push origin &lt;tagname&gt;</code>,或者，一次性推送全部尚未推送到远程的本地标签：<code>git push origin --tags</code>。</p>
+<p>如果标签已经推送到远程，要删除远程标签就麻烦一点，先从本地删除:</p>
+<ul>
+<li><ol>
+<li>先本地删除标签名<code>git tag -d &lt;标签名&gt;</code></li>
+</ol>
+</li>
+<li><ol start="2">
+<li>然后，从远程删除。删除命令也是 push，但是格式是: <code>git push origin :refs/tags/&lt;标签名&gt;</code></li>
+</ol>
+</li>
+</ul>
+<hr>
+<h3 id="如何让本地仓库关联两个远程仓库"><a href="#如何让本地仓库关联两个远程仓库" class="headerlink" title="如何让本地仓库关联两个远程仓库"></a>如何让本地仓库关联两个远程仓库</h3><p>使用多个远程库时，我们要注意，git 给远程库起的默认名称是 origin，如果有多个远程库，我们需要用不同的名称来标识不同的远程库。</p>
+<p>步骤如下:</p>
+<ul>
+<li>先关联 GitHub 的远程库： <code>git remote add github &lt;github的远程仓库地址&gt;</code>，注意，远程库的名称叫 github，不叫 origin 了。</li>
+<li>再关联码云的远程库: <code>git remote add gitee &lt;码云的远程仓库地址&gt;</code>,同样注意，远程库的名称叫 gitee，不叫 origin。</li>
+</ul>
+<p>现在，我们用<code>git remote -v</code>查看远程库信息，可以看到两个远程库.</p>
+<p>如果要推送到 GitHub，使用命令： <code>git push github &lt;branch&gt;</code>。<br>如果要推送到码云，使用命令： <code>git push gitee &lt;branch&gt;</code>。<br>这样一来，我们的本地库就可以同时与多个远程库互相同步。</p>
+<p>如果要删除已有的远程仓库可以使用命令: <code>git remote rm origin</code> ， 这里注意， origin 是默认的远程仓库的名称，假如你更改了这个名称，那么你就要输入你更改后的名称哦。</p>
+<hr>
+<h3 id="自定义-git"><a href="#自定义-git" class="headerlink" title="自定义 git"></a>自定义 git</h3><p>Git 有很多可配置项:</p>
+<p><code>git config --global color.ui true</code> 该配置会让 Git 适当地显示不同的颜色</p>
+<h3 id="忽略特殊文件"><a href="#忽略特殊文件" class="headerlink" title="忽略特殊文件"></a>忽略特殊文件</h3><p>在 Git 工作区的根目录下创建一个特殊的.gitignore 文件，然后把要忽略的文件名填进去，Git 就会自动忽略这些文件,这个文件不需要我们自己写，可以在<a target="_blank" rel="noopener" href="https://github.com/github/gitignore">这里</a>组合一下就可以。</p>
+<h3 id="配置别名"><a href="#配置别名" class="headerlink" title="配置别名"></a>配置别名</h3><p>配置一个<code>git status</code>的简写：<code>git config --global alias.st status</code> , 之后输入命令则可以更改为<code>git st</code></p>
+<p>配置一个<code>git chackout &lt;branch&gt;</code>的简写：<code>git config --global alias.co checkout</code> , 之后输入命令则可以更改为<code>git co &lt;branch&gt;</code></p>
+<p>配置一个<code>git commit -m &#39;备注&#39;</code>的简写：<code>git config --global alias.ci commit</code> , 之后输入命令则可以更改为<code>git ci -m &#39;备注&#39;</code></p>
+<p>配置一个<code>git branch</code>的简写：<code>git config --global alias.br branch</code> , 之后输入命令则可以更改为<code>git br&#39;备注&#39;</code></p>
+<p><code>--global</code>参数是全局参数，也就是这些命令在这台电脑的所有 Git 仓库下都有用。</p>
+<p>配置一个<code>git reset HEAD &lt;file&gt;</code>的简写：<code>git config --global alias.unstage &#39;reset HEAD&#39;</code> , 之后输入命令则可以更改为<code>git unstage &lt;file&gt;</code> , 这个命令是让暂存区的修改撤销重新放回工作区哦。</p>
+<p>配置一个<code>git log -1</code>的简写: <code>git config --global alias.last &#39;log -1&#39;</code> , 之后输入命令则可以更改为<code>git last</code>, 这个命令是让其显示最后一次提交信息</p>
+<p>配置一个<code>git log</code>的简写：<code>git config --global alias.lg &quot;log --color --graph --pretty=format:&#39;%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an&gt;%Creset&#39; --abbrev-commit&quot;</code>, , 之后输入命令则可以更改为<code>git lg</code></p>
+<h3 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h3><p>配置 Git 的时候，加上–global 是针对当前用户起作用的，如果不加，那只针对当前的仓库起作用。</p>
+<p>配置文件放哪了？每个仓库的 Git 配置文件都放在.git/config 文件中,别名就在[alias]后面，要删除别名，直接把对应的行删掉即可。</p>
+<p>而当前用户的 Git 配置文件放在用户主目录下的一个隐藏文件.gitconfig 中,配置别名也可以直接修改这个文件，如果改错了，可以删掉文件重新通过命令配置。</p>
+<p><a target="_blank" rel="noopener" href="https://git-scm.com/book/zh/v1/%E8%87%AA%E5%AE%9A%E4%B9%89-Git-%E9%85%8D%E7%BD%AE-Git">更多的 git 配置</a></p>
+<hr>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ul>
+<li>1.git 的知识点还有很多，廖雪峰老师的教学中还有一章 git 搭建没有去实战过，因为感觉还不是特别需要，所以暂时先放下了。</li>
+<li>本篇文章有自己的一些理解，但更多的是借鉴，感谢这些前辈们的无私奉献，才让我们这些底层的小白有进步的空间。</li>
+</ul>
+<p>这里贴出两位大佬的文章，个人感觉对初学者很是友好，简单易懂:</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.liaoxuefeng.com/wiki/896043488029600">廖雪峰老师的 git 教学</a></li>
+<li><a target="_blank" rel="noopener" href="http://rogerdudler.github.io/git-guide/index.zh.html">罗杰·杜德勒老师的 git 教学</a></li>
+</ul>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Git/">Git</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Git-%E5%AD%A6%E4%B9%A0/">Git 学习</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/articles/2020/09/01/JavaScript%E9%87%8D%E7%82%B9%E4%B9%8B%E5%8E%9F%E5%9E%8B%E4%B8%8E%E5%8E%9F%E5%9E%8B%E9%93%BE/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">JavaScript重点之原型与原型链</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/articles/2020/09/01/Flutter%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/">
+                        <span class="hidden-mobile">Flutter开发环境搭建</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <!-- <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div> -->
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '#post-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "Git学习备忘录&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+  
+  
+    <script>
+      !function (e, t, a) {
+        function r() {
+          for (var e = 0; e < s.length; e++) s[e].alpha <= 0 ? (t.body.removeChild(s[e].el), s.splice(e, 1)) : (s[e].y--, s[e].scale += .004, s[e].alpha -= .013, s[e].el.style.cssText = "left:" + s[e].x + "px;top:" + s[e].y + "px;opacity:" + s[e].alpha + ";transform:scale(" + s[e].scale + "," + s[e].scale + ") rotate(45deg);background:" + s[e].color + ";z-index:99999");
+          requestAnimationFrame(r)
+        }
+
+        function n() {
+          var t = "function" == typeof e.onclick && e.onclick;
+          e.onclick = function (e) {
+            t && t(), o(e)
+          }
+        }
+
+        function o(e) {
+          var a = t.createElement("div");
+          a.className = "heart", s.push({
+            el: a,
+            x: e.clientX - 5,
+            y: e.clientY - 5,
+            scale: 1,
+            alpha: 1,
+            color: c()
+          }), t.body.appendChild(a)
+        }
+
+        function i(e) {
+          var a = t.createElement("style");
+          a.type = "text/css";
+          try {
+            a.appendChild(t.createTextNode(e))
+          } catch (t) {
+            a.styleSheet.cssText = e
+          }
+          t.getElementsByTagName("head")[0].appendChild(a)
+        }
+
+        function c() {
+          return "rgb(" + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + ")"
+        }
+
+        var s = [];
+        e.requestAnimationFrame = e.requestAnimationFrame || e.webkitRequestAnimationFrame || e.mozRequestAnimationFrame || e.oRequestAnimationFrame || e.msRequestAnimationFrame || function (e) {
+          setTimeout(e, 1e3 / 60)
+        }, i(".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}"), n(), r()
+      }(window, document);
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
